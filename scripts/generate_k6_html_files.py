@@ -110,25 +110,61 @@ def read_questions_from_csv(csv_file):
     """Đọc câu hỏi từ CSV"""
     questions_by_lesson = {}
     
-    with open(csv_file, 'r', encoding='utf-8') as f:
+    # File CSV có format đơn giản, không có dấu ngoặc kép bao quanh
+    with open(csv_file, 'r', encoding='utf-8-sig') as f:  # utf-8-sig để tự động loại bỏ BOM nếu có
         reader = csv.DictReader(f)
+        
+        # Kiểm tra headers
+        if not reader.fieldnames:
+            raise ValueError("File CSV trống hoặc không có header")
+        
+        print(f"📋 Headers tìm thấy: {list(reader.fieldnames)}")
+        
+        # Kiểm tra các cột bắt buộc
+        required_fields = ['q_id', 'question_text', 'option_A', 'option_B', 'option_C', 'option_D', 'correct_option']
+        missing_fields = [f for f in required_fields if f not in reader.fieldnames]
+        if missing_fields:
+            raise ValueError(f"Thiếu các cột bắt buộc: {missing_fields}. Headers có: {list(reader.fieldnames)}")
+        
+        # Đọc dữ liệu
+        row_count = 0
         for row in reader:
-            lesson_key = row['q_id'][:4]  # K6A1, K6A2, etc.
+            row_count += 1
             
-            if lesson_key not in questions_by_lesson:
-                questions_by_lesson[lesson_key] = []
+            # Bỏ qua dòng trống
+            if not row.get('q_id', '').strip():
+                continue
             
-            questions_by_lesson[lesson_key].append({
-                'question': row['question_text'],
-                'options': [
-                    row['option_A'],
-                    row['option_B'],
-                    row['option_C'],
-                    row['option_D']
-                ],
-                'correct': ord(row['correct_option']) - ord('A')  # A=0, B=1, C=2, D=3
-            })
+            try:
+                q_id = row['q_id'].strip()
+                lesson_key = q_id[:4]  # K6A1, K6A2, etc.
+                
+                if lesson_key not in questions_by_lesson:
+                    questions_by_lesson[lesson_key] = []
+                
+                # Lấy đáp án đúng và chuyển sang số (A=0, B=1, C=2, D=3)
+                correct_option = row['correct_option'].strip().upper()
+                if correct_option not in ['A', 'B', 'C', 'D']:
+                    print(f"⚠️  Dòng {row_count}: Đáp án không hợp lệ '{correct_option}', bỏ qua")
+                    continue
+                
+                correct_index = ord(correct_option) - ord('A')
+                
+                questions_by_lesson[lesson_key].append({
+                    'question': row['question_text'].strip(),
+                    'options': [
+                        row['option_A'].strip(),
+                        row['option_B'].strip(),
+                        row['option_C'].strip(),
+                        row['option_D'].strip()
+                    ],
+                    'correct': correct_index
+                })
+            except (KeyError, ValueError) as e:
+                print(f"⚠️  Lỗi xử lý dòng {row_count}: {e}")
+                continue
     
+    print(f"✅ Đã đọc {row_count} dòng, tìm thấy {len(questions_by_lesson)} bài học")
     return questions_by_lesson
 
 def generate_html_files(csv_file, output_dir='../Web'):
@@ -209,10 +245,17 @@ def generate_html_files(csv_file, output_dir='../Web'):
 
 def main():
     """Hàm chính"""
-    csv_file = '../Bai_tap_Tin_6/question_bank_K6_ChuDe_A.csv'
+    # Tên file CSV đúng: K6_question_A_full.csv
+    csv_file = '../Bai_tap_Tin_6/K6_question_A_full.csv'
     
     if not os.path.exists(csv_file):
         print(f"[ERROR] Khong tim thay file: {csv_file}")
+        print(f"[INFO] Cac file CSV co san trong Bai_tap_Tin_6/:")
+        csv_dir = '../Bai_tap_Tin_6'
+        if os.path.exists(csv_dir):
+            csv_files = [f for f in os.listdir(csv_dir) if f.endswith('.csv')]
+            for f in csv_files:
+                print(f"   - {f}")
         sys.exit(1)
     
     generate_html_files(csv_file)

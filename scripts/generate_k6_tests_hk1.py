@@ -5,7 +5,7 @@ Script tạo 4 bài kiểm tra khối 6 học kì 1
 - Kiểm tra 1: 20 câu từ A1, A2, A3, A4 (mỗi bài: 3 nhận biết, 1 thông hiểu, 1 vận dụng)
 - Kiểm tra 2: 20 câu từ chủ đề A và chủ đề B
 - Kiểm tra 3: 20 câu từ C1, C2, C3
-- Kiểm tra 4: 40 câu từ chủ đề A, B, C
+- Kiểm tra 4: 20 câu từ chủ đề A, B, C
 """
 
 import csv
@@ -13,15 +13,15 @@ import os
 import random
 from collections import defaultdict
 
-# Đường dẫn file CSV
+# Đường dẫn file CSV (từ thư mục scripts)
 CSV_FILES = {
-    'A': 'Bai_tap_Tin_6/K6_question_A_full.csv',
-    'B': 'Bai_tap_Tin_6/K6_question_B_full.csv',
-    'C': 'Bai_tap_Tin_6/K6_question_C_full.csv',
+    'A': '../Bai_tap_Tin_6/K6_question_A_full.csv',
+    'B': '../Bai_tap_Tin_6/K6_question_B_full.csv',
+    'C': '../Bai_tap_Tin_6/K6_question_C_full.csv',
 }
 
-# Đường dẫn output
-OUTPUT_DIR = '.'
+# Đường dẫn output (lưu vào thư mục Web)
+OUTPUT_DIR = '../Web'
 
 # Mapping tên bài kiểm tra
 TEST_NAMES = {
@@ -56,47 +56,64 @@ def read_csv_file(filepath):
     """Đọc file CSV và trả về danh sách câu hỏi"""
     questions = []
     if not os.path.exists(filepath):
-        print(f"[WARNING] Khong tim thay file: {filepath}")
+        print(f"[SKIP] Khong tim thay file: {filepath}")
         return questions
     
-    # File CSV có format đặc biệt: mỗi dòng được bao quanh bởi dấu ngoặc kép
-    with open(filepath, 'r', encoding='utf-8-sig') as f:
-        lines = f.readlines()
-        
-        if not lines:
-            return questions
-        
-        # Xử lý header
-        header_line = lines[0].strip()
-        if header_line.startswith('"') and header_line.endswith('"'):
-            header_line = header_line[1:-1]
-        headers = [h.strip() for h in header_line.split(',')]
-        
-        # Đọc các dòng dữ liệu
-        for line in lines[1:]:
-            line = line.strip()
-            if not line:
-                continue
+    print(f"[READ] Dang doc: {os.path.basename(filepath)}")
+    
+    try:
+        with open(filepath, 'r', encoding='utf-8-sig') as f:  # utf-8-sig để loại bỏ BOM
+            reader = csv.DictReader(f)
             
-            # Bỏ dấu ngoặc kép bao quanh toàn bộ dòng
-            if line.startswith('"') and line.endswith('"'):
-                line = line[1:-1]
+            # Kiểm tra headers
+            if not reader.fieldnames:
+                print(f"  ⚠️  File trống hoặc không có header")
+                return questions
             
-            # Split bằng dấu phẩy
-            # Lưu ý: có thể có dấu phẩy trong nội dung, nhưng với format này thì split đơn giản vẫn được
-            parts = [p.strip() for p in line.split(',')]
+            # Kiểm tra các cột bắt buộc
+            required_fields = ['q_id', 'question_text', 'option_A', 'option_B', 'option_C', 'option_D', 'correct_option', 'difficulty']
+            missing_fields = [f for f in required_fields if f not in reader.fieldnames]
+            if missing_fields:
+                print(f"  ⚠️  Thiếu các cột bắt buộc: {missing_fields}")
+                return questions
             
-            if len(parts) >= len(headers):
-                # Lấy đủ số phần tử
-                parts = parts[:len(headers)]
-                row_dict = dict(zip(headers, parts))
+            row_count = 0
+            for row in reader:
+                # Bỏ qua dòng trống
+                if not row.get('q_id', '').strip():
+                    continue
                 
-                # Lấy mã bài từ q_id (vd: K6A1_01 -> A1)
-                q_id = row_dict.get('q_id', '')
-                if q_id:
+                try:
+                    q_id = row['q_id'].strip()
+                    
+                    # Lấy mã bài từ q_id (vd: K6A1_01 -> A1)
                     lesson_code = q_id.split('_')[0].replace('K6', '')
-                    row_dict['lesson_code'] = lesson_code
-                    questions.append(row_dict)
+                    
+                    if not lesson_code:
+                        print(f"  ⚠️  Không xác định được lesson_code từ q_id: {q_id}")
+                        continue
+                    
+                    # Lấy đáp án đúng và chuyển sang số (A=0, B=1, C=2, D=3)
+                    correct_option = row['correct_option'].strip().upper()
+                    # Xử lý cả trường hợp có dấu chấm: "A." -> "A"
+                    if correct_option.endswith('.'):
+                        correct_option = correct_option[:-1]
+                    
+                    if correct_option not in ['A', 'B', 'C', 'D']:
+                        print(f"  ⚠️  Dòng {q_id}: Đáp án không hợp lệ '{row['correct_option']}', bỏ qua")
+                        continue
+                    
+                    # Thêm thông tin vào row
+                    row['lesson_code'] = lesson_code
+                    questions.append(row)
+                    row_count += 1
+                except (KeyError, ValueError) as e:
+                    print(f"  ⚠️  Lỗi xử lý dòng: {e}")
+                    continue
+            
+            print(f"  ✅ Đã đọc {row_count} câu hỏi")
+    except Exception as e:
+        print(f"  ❌ Lỗi đọc file: {e}")
     
     return questions
 
@@ -238,9 +255,15 @@ def convert_question_to_js_format(q):
     opt_d = js_escape(add_period(q.get('option_D', '')))
     
     # Xác định đáp án đúng
-    correct_option = q.get('correct_option', 'A').strip()
-    answer_map = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'A.': 0, 'B.': 1, 'C.': 2, 'D.': 3}
-    answer = answer_map.get(correct_option, 0)
+    correct_option = q.get('correct_option', 'A').strip().upper()
+    # Xử lý cả trường hợp có dấu chấm: "A." -> "A"
+    if correct_option.endswith('.'):
+        correct_option = correct_option[:-1]
+    
+    if correct_option not in ['A', 'B', 'C', 'D']:
+        correct_option = 'A'  # Mặc định nếu không hợp lệ
+    
+    answer = ord(correct_option) - ord('A')  # A=0, B=1, C=2, D=3
     
     return {
         'question': question_text,

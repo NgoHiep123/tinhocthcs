@@ -143,13 +143,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
 def read_all_questions():
     """Đọc tất cả câu hỏi từ các file CSV"""
+    # Tên file CSV đúng: K6_question_X_full.csv
     csv_files = [
-        '../Bai_tap_Tin_6/question_bank_K6_ChuDe_A.csv',
-        '../Bai_tap_Tin_6/question_bank_K6_ChuDe_B.csv',
-        '../Bai_tap_Tin_6/question_bank_K6_ChuDe_C.csv',
-        '../Bai_tap_Tin_6/question_bank_K6_ChuDe_D.csv',
-        '../Bai_tap_Tin_6/question_bank_K6_ChuDe_E.csv',
-        '../Bai_tap_Tin_6/question_bank_K6_ChuDe_F.csv'
+        '../Bai_tap_Tin_6/K6_question_A_full.csv',
+        '../Bai_tap_Tin_6/K6_question_B_full.csv',
+        '../Bai_tap_Tin_6/K6_question_C_full.csv',
+        '../Bai_tap_Tin_6/K6_question_D_full.csv',
+        '../Bai_tap_Tin_6/K6_question_E_full.csv',
+        '../Bai_tap_Tin_6/K6_question_F_full.csv'
     ]
     
     all_questions = {}
@@ -159,24 +160,57 @@ def read_all_questions():
             print(f"[SKIP] Khong tim thay: {csv_file}")
             continue
         
-        with open(csv_file, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                lesson_key = row['q_id'][:4]  # K6A1, K6B1, etc.
+        print(f"[READ] Dang doc: {os.path.basename(csv_file)}")
+        
+        try:
+            with open(csv_file, 'r', encoding='utf-8-sig') as f:  # utf-8-sig để loại bỏ BOM
+                reader = csv.DictReader(f)
                 
-                if lesson_key not in all_questions:
-                    all_questions[lesson_key] = []
+                # Kiểm tra headers
+                if not reader.fieldnames:
+                    print(f"  ⚠️  File trống hoặc không có header")
+                    continue
                 
-                all_questions[lesson_key].append({
-                    'question': row['question_text'],
-                    'options': [
-                        row['option_A'],
-                        row['option_B'],
-                        row['option_C'],
-                        row['option_D']
-                    ],
-                    'answer': ord(row['correct_option']) - ord('A')
-                })
+                row_count = 0
+                for row in reader:
+                    # Bỏ qua dòng trống
+                    if not row.get('q_id', '').strip():
+                        continue
+                    
+                    try:
+                        q_id = row['q_id'].strip()
+                        lesson_key = q_id[:4]  # K6A1, K6B1, etc.
+                        
+                        if lesson_key not in all_questions:
+                            all_questions[lesson_key] = []
+                        
+                        # Lấy đáp án đúng và chuyển sang số (A=0, B=1, C=2, D=3)
+                        correct_option = row['correct_option'].strip().upper()
+                        if correct_option not in ['A', 'B', 'C', 'D']:
+                            print(f"  ⚠️  Dòng {q_id}: Đáp án không hợp lệ '{correct_option}', bỏ qua")
+                            continue
+                        
+                        correct_index = ord(correct_option) - ord('A')
+                        
+                        all_questions[lesson_key].append({
+                            'question': row['question_text'].strip(),
+                            'options': [
+                                row['option_A'].strip(),
+                                row['option_B'].strip(),
+                                row['option_C'].strip(),
+                                row['option_D'].strip()
+                            ],
+                            'answer': correct_index
+                        })
+                        row_count += 1
+                    except (KeyError, ValueError) as e:
+                        print(f"  ⚠️  Lỗi xử lý dòng: {e}")
+                        continue
+                
+                print(f"  ✅ Đã đọc {row_count} câu hỏi")
+        except Exception as e:
+            print(f"  ❌ Lỗi đọc file: {e}")
+            continue
     
     return all_questions
 

@@ -72,7 +72,7 @@
   </main>
   <script>
     const QUIZ_ID="K6_E2";
-    const ENDPOINT="https://script.google.com/macros/s/AKfycbwj9IiX8PXC-bNsh4DGIw0uysx0v3jWPNeu0lQpieUIQAx9sT9YNUKTZoQFBjg-w86TKg/exec";
+    const ENDPOINT="https://script.google.com/a/macros/asianintlschool.edu.vn/s/AKfycbytwRuA512UKakrHpIoURxfAn8-h6XB8e2Gs-cah4gxZHC7-iJOJrl-Qeg_5O-XAfrNjA/exec";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();

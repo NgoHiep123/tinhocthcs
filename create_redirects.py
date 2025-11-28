@@ -30,7 +30,7 @@ REDIRECT_TEMPLATE = """<!DOCTYPE html>
 
 def create_redirect_file(filename):
     """Tạo file redirect cho một file HTML"""
-    target_url = f"Web/{filename}"
+    target_url = f"/Web/{filename}"  # Sử dụng đường dẫn tuyệt đối
     redirect_content = REDIRECT_TEMPLATE.format(target_url=target_url)
     
     # Ghi file redirect ở thư mục gốc
@@ -63,4 +63,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 

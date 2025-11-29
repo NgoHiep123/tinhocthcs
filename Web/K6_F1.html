@@ -92,7 +92,47 @@
     function checkAnswer(chosen,btn){const q=quiz[currentQ];const allBtns=document.querySelectorAll('.option-btn');allBtns.forEach(b=>b.disabled=true);if(chosen===q.answer){btn.classList.add('correct');score++;document.getElementById('score').innerHTML=`🏆 ${score}`;document.getElementById('feedback-text').innerHTML='✅ <span style="color:#10b981">Chính xác!</span>';confetti({particleCount:50,spread:60,origin:{y:0.6}})}else{btn.classList.add('incorrect');allBtns[q.answer].classList.add('correct');document.getElementById('feedback-text').innerHTML='❌ <span style="color:#ef4444">Chưa đúng!</span>'}document.getElementById('next-btn').classList.remove('hidden')}
     document.getElementById('next-btn').onclick=()=>{currentQ++;if(currentQ<quiz.length)showQuestion();else showResults()};
     function showResults(){document.querySelector('.quiz-container>div:first-child').classList.add('hidden');document.getElementById('options-container').classList.add('hidden');document.getElementById('next-btn').classList.add('hidden');document.getElementById('feedback-container').classList.add('hidden');document.getElementById('results-container').classList.remove('hidden');const pct=(score/quiz.length*100).toFixed(0);document.getElementById('final-score').textContent=`${score}/${quiz.length} (${pct}%)`;let comment,emoji;if(pct>=90){comment="🌟 Xuất sắc!";emoji="🎉"}else if(pct>=70){comment="👍 Rất tốt!";emoji="😊"}else if(pct>=50){comment="💪 Khá tốt!";emoji="😃"}else{comment="📖 Cố gắng hơn nhé!";emoji="😅"}document.getElementById('score-comment').textContent=comment;document.getElementById('result-emoji').textContent=emoji;if(pct>=70){const duration=3000,end=Date.now()+duration;(function frame(){confetti({particleCount:3,angle:60,spread:55,origin:{x:0}});confetti({particleCount:3,angle:120,spread:55,origin:{x:1}});if(Date.now()<end)requestAnimationFrame(frame)}())}const duration=Math.floor((Date.now()-startTime)/1000);if(student){sendResult(student.name,student.className,QUIZ_ID,score,quiz.length,duration)}else{document.getElementById('send-status').textContent='Chưa đăng nhập'}}
-    async function sendResult(name,className,quizId,score,total,duration){try{const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;await fetch(url,{mode:'no-cors'});document.getElementById('send-status').textContent='✅ Đã lưu!'}catch(e){document.getElementById('send-status').textContent='⚠️ Không lưu được'}}
+    async function sendResult(name,className,quizId,score,total,duration){
+      try{
+        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;
+        console.log('📤 Đang gửi kết quả...');
+        console.log('📋 Dữ liệu:', {name, className, quizId, score, total, duration});
+        console.log('🔗 URL:', url);
+        
+        const response = await fetch(url);
+        console.log('📥 Response status:', response.status);
+        console.log('📥 Response ok:', response.ok);
+        
+        const responseText = await response.text();
+        console.log('📄 Response text:', responseText);
+        
+        try {
+          const result = JSON.parse(responseText);
+          console.log('✅ JSON response:', result);
+          
+          if (result.success) {
+            document.getElementById('send-status').textContent='✅ Đã lưu!';
+            console.log('✅ Kết quả đã được lưu thành công vào Google Sheet');
+          } else {
+            throw new Error(result.message || 'Lỗi từ server: ' + JSON.stringify(result));
+          }
+        } catch (parseError) {
+          console.error('❌ Lỗi parse JSON:', parseError);
+          console.log('⚠️ Response không phải JSON, có thể là redirect hoặc HTML');
+          
+          if (response.ok) {
+            document.getElementById('send-status').textContent='✅ Đã lưu! (đang chờ xác nhận)';
+            console.log('⚠️ Không thể xác nhận nhưng status OK');
+          } else {
+            throw new Error('Response không OK: ' + response.status + ' - ' + responseText.substring(0, 100));
+          }
+        }
+      }catch(e){
+        console.error('❌ Lỗi khi gửi kết quả:', e);
+        console.error('❌ Stack trace:', e.stack);
+        document.getElementById('send-status').textContent='⚠️ Không lưu được: ' + e.message;
+      }
+    }
     document.getElementById('restart-btn').onclick=()=>location.reload();
     showQuestion();
   </script>

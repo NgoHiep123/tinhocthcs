@@ -144,11 +144,43 @@
     
     async function sendResult(name,className,quizId,score,total,duration){
       try{
-        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${encodeURIComponent(quizId)}&score=${score}&total=${total}&duration=${duration}`;
-        await fetch(url,{mode:'no-cors'});
-        document.getElementById('send-status').textContent='✅ Đã lưu!'
+        const url=`${ENDPOINT}?student_name=${encodeURIComponent(name)}&class_name=${encodeURIComponent(className)}&quiz_id=${quizId}&score=${score}&total=${total}&duration=${duration}`;
+        console.log('📤 Đang gửi kết quả...');
+        console.log('📋 Dữ liệu:', {name, className, quizId, score, total, duration});
+        console.log('🔗 URL:', url);
+        
+        const response = await fetch(url);
+        console.log('📥 Response status:', response.status);
+        console.log('📥 Response ok:', response.ok);
+        
+        const responseText = await response.text();
+        console.log('📄 Response text:', responseText);
+        
+        try {
+          const result = JSON.parse(responseText);
+          console.log('✅ JSON response:', result);
+          
+          if (result.success) {
+            document.getElementById('send-status').textContent='✅ Đã lưu!';
+            console.log('✅ Kết quả đã được lưu thành công vào Google Sheet');
+          } else {
+            throw new Error(result.message || 'Lỗi từ server: ' + JSON.stringify(result));
+          }
+        } catch (parseError) {
+          console.error('❌ Lỗi parse JSON:', parseError);
+          console.log('⚠️ Response không phải JSON, có thể là redirect hoặc HTML');
+          
+          if (response.ok) {
+            document.getElementById('send-status').textContent='✅ Đã lưu! (đang chờ xác nhận)';
+            console.log('⚠️ Không thể xác nhận nhưng status OK');
+          } else {
+            throw new Error('Response không OK: ' + response.status + ' - ' + responseText.substring(0, 100));
+          }
+        }
       }catch(e){
-        document.getElementById('send-status').textContent='⚠️ Không lưu được'
+        console.error('❌ Lỗi khi gửi kết quả:', e);
+        console.error('❌ Stack trace:', e.stack);
+        document.getElementById('send-status').textContent='⚠️ Không lưu được: ' + e.message;
       }
     }
     

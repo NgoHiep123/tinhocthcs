@@ -73,7 +73,7 @@
   </main>
   <script>
     const QUIZ_ID="K7_KIEM_TRA_8";
-    const ENDPOINT="https://script.google.com/a/macros/asianintlschool.edu.vn/s/AKfycbxoj7jkOooCg_2ciiNIgbBjsLc2MIcGUgnIm_I43eYjPGiUOKwnloqUBCXWZOlOspWxLA/exec";
+    const ENDPOINT="https://script.google.com/a/macros/asianintlschool.edu.vn/s/AKfycbydBX3A2x7rES_Re5OnfdI3aybBCp-vBa7YNdJ2UUHzjGyo1wFK2mqvLLmdypJkHnBDzw/exec";
     function getStudent(){try{return JSON.parse(localStorage.getItem('student')||'null')}catch(e){return null}}
     const student=getStudent();
     (function(){const pill=document.getElementById('userPill');if(student&&pill){pill.classList.remove('hidden');pill.innerHTML=`👤 ${student.name} · Lớp ${student.className}`}})();

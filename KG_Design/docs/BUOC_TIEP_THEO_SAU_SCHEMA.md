@@ -2,7 +2,7 @@
 
 ## ✅ BẠN ĐÃ HOÀN THÀNH
 
-- ✅ Tạo repository: `tinhoc_thcs`
+- ✅ Tạo repository: `tinhocthcs`
 - ✅ Upload schema: `kg_schema_chuan.ttl`
 
 ---
@@ -124,7 +124,7 @@ Upload theo thứ tự:
 ```
 
 **Cách upload:**
-1. GraphDB Desktop → Chọn repository `tinhoc_thcs`
+1. GraphDB Desktop → Chọn repository `tinhocthcs`
 2. Import → RDF → Upload RDF files
 3. Chọn file `grades.ttl`
 4. Click Import

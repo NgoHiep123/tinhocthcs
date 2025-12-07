@@ -24,7 +24,7 @@
 ## 🔍 BƯỚC 1: UPLOAD `classes.ttl`
 
 ### **Cách upload:**
-1. GraphDB Desktop → Chọn repository `tinhoc_thcs`
+1. GraphDB Desktop → Chọn repository `tinhocthcs`
 2. Import → RDF → Upload RDF files
 3. Chọn: `KG_Design/data/grade6/ttl/classes.ttl`
 4. Import

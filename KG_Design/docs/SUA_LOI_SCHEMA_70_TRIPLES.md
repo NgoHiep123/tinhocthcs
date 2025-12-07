@@ -49,7 +49,7 @@ Mở file `KG_Design/schema/kg_schema_chuan.ttl` và kiểm tra:
 
 ```
 1. GraphDB Desktop
-2. Chọn repository "tinhoc_thcs"
+2. Chọn repository "tinhocthcs"
 3. Setup → Repositories → Edit
 4. Clear repository (hoặc Delete và tạo lại)
 5. Import → RDF → Upload RDF files
@@ -169,9 +169,9 @@ WHERE {
 
 ```
 1. Mở GraphDB Desktop
-2. Chọn repository "tinhoc_thcs"
+2. Chọn repository "tinhocthcs"
 3. Setup → Repositories
-4. Chọn "tinhoc_thcs" → Edit
+4. Chọn "tinhocthcs" → Edit
 5. Scroll xuống → "Clear repository"
 6. Confirm
 7. Quay lại repository

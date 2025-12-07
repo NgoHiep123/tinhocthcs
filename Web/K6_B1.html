@@ -103,32 +103,58 @@
         console.log('📋 Dữ liệu:', {name, className, quizId, score, total, duration});
         console.log('🔗 URL:', url);
         
-        const response = await fetch(url);
-        console.log('📥 Response status:', response.status);
-        console.log('📥 Response ok:', response.ok);
-        
-        const responseText = await response.text();
-        console.log('📄 Response text:', responseText);
-        
+        // Thử fetch với CORS trước
         try {
-          const result = JSON.parse(responseText);
-          console.log('✅ JSON response:', result);
+          const response = await fetch(url);
+          console.log('📥 Response status:', response.status);
+          console.log('📥 Response ok:', response.ok);
           
-          if (result.success) {
-            document.getElementById('send-status').textContent='✅ Đã lưu!';
-            console.log('✅ Kết quả đã được lưu thành công vào Google Sheet');
-          } else {
-            throw new Error(result.message || 'Lỗi từ server: ' + JSON.stringify(result));
+          const responseText = await response.text();
+          console.log('📄 Response text:', responseText);
+          
+          try {
+            const result = JSON.parse(responseText);
+            console.log('✅ JSON response:', result);
+            
+            if (result.success) {
+              document.getElementById('send-status').textContent='✅ Đã lưu!';
+              console.log('✅ Kết quả đã được lưu thành công vào Google Sheet');
+              return;
+            } else {
+              throw new Error(result.message || 'Lỗi từ server: ' + JSON.stringify(result));
+            }
+          } catch (parseError) {
+            console.error('❌ Lỗi parse JSON:', parseError);
+            console.log('⚠️ Response không phải JSON');
+            
+            if (response.ok) {
+              document.getElementById('send-status').textContent='✅ Đã lưu! (đang chờ xác nhận)';
+              console.log('⚠️ Không thể xác nhận nhưng status OK');
+              return;
+            } else {
+              throw new Error('Response không OK: ' + response.status);
+            }
           }
-        } catch (parseError) {
-          console.error('❌ Lỗi parse JSON:', parseError);
-          console.log('⚠️ Response không phải JSON, có thể là redirect hoặc HTML');
+        } catch (corsError) {
+          // Nếu gặp lỗi CORS, thử lại với no-cors mode
+          console.warn('⚠️ Lỗi CORS, thử lại với no-cors mode:', corsError.message);
           
-          if (response.ok) {
-            document.getElementById('send-status').textContent='✅ Đã lưu! (đang chờ xác nhận)';
-            console.log('⚠️ Không thể xác nhận nhưng status OK');
-          } else {
-            throw new Error('Response không OK: ' + response.status + ' - ' + responseText.substring(0, 100));
+          try {
+            await fetch(url, {mode: 'no-cors'});
+            document.getElementById('send-status').textContent='✅ Đã gửi (kiểm tra Google Sheet)';
+            console.log('📤 Đã gửi request với no-cors mode. Kiểm tra Google Sheet để xác nhận.');
+            
+            // Mở một tab ẩn để kiểm tra URL
+            const checkUrl = url + '&_check=1';
+            setTimeout(() => {
+              const hiddenFrame = document.createElement('iframe');
+              hiddenFrame.style.display = 'none';
+              hiddenFrame.src = checkUrl;
+              document.body.appendChild(hiddenFrame);
+              setTimeout(() => document.body.removeChild(hiddenFrame), 2000);
+            }, 500);
+          } catch (noCorsError) {
+            throw new Error('Lỗi khi gửi request: ' + noCorsError.message);
           }
         }
       }catch(e){

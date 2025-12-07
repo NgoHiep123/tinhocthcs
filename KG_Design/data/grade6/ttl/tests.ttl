@@ -1,0 +1,98 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix data: <http://education.vn/data/> .
+
+data:test_ASSESS_K6_A1_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_A1_2024" ;
+    edu:testName "Kiểm tra Chủ đề A - Bài 1" .
+
+data:test_ASSESS_K6_A2_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_A2_2024" ;
+    edu:testName "Kiểm tra Chủ đề A - Bài 2" .
+
+data:test_ASSESS_K6_A3_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_A3_2024" ;
+    edu:testName "Kiểm tra Chủ đề A - Bài 3" .
+
+data:test_ASSESS_K6_A4_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_A4_2024" ;
+    edu:testName "Kiểm tra Chủ đề A - Bài 4" .
+
+data:test_ASSESS_K6_A5_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_A5_2024" ;
+    edu:testName "Kiểm tra Chủ đề A - Bài 5" .
+
+data:test_ASSESS_K6_B1_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_B1_2024" ;
+    edu:testName "Kiểm tra Chủ đề B - Bài 1" .
+
+data:test_ASSESS_K6_B2_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_B2_2024" ;
+    edu:testName "Kiểm tra Chủ đề B - Bài 2" .
+
+data:test_ASSESS_K6_B3_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_B3_2024" ;
+    edu:testName "Kiểm tra Chủ đề B - Bài 3" .
+
+data:test_ASSESS_K6_B4_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_B4_2024" ;
+    edu:testName "Kiểm tra Chủ đề B - Bài 4" .
+
+data:test_ASSESS_K6_C1_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_C1_2024" ;
+    edu:testName "Kiểm tra Chủ đề C - Bài 1" .
+
+data:test_ASSESS_K6_C2_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_C2_2024" ;
+    edu:testName "Kiểm tra Chủ đề C - Bài 2" .
+
+data:test_ASSESS_K6_C3_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_C3_2024" ;
+    edu:testName "Kiểm tra Chủ đề C - Bài 3" .
+
+data:test_ASSESS_K6_C4_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_C4_2024" ;
+    edu:testName "Kiểm tra Chủ đề C - Bài 4" .
+
+data:test_ASSESS_K6_D1_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_D1_2024" ;
+    edu:testName "Kiểm tra Chủ đề D - Bài 1" .
+
+data:test_ASSESS_K6_D2_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_D2_2024" ;
+    edu:testName "Kiểm tra Chủ đề D - Bài 2" .
+
+data:test_ASSESS_K6_D3_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_D3_2024" ;
+    edu:testName "Kiểm tra Chủ đề D - Bài 3" .
+
+data:test_ASSESS_K6_E1_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_E1_2024" ;
+    edu:testName "Kiểm tra Chủ đề E - Bài 1" .
+
+data:test_ASSESS_K6_E2_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_E2_2024" ;
+    edu:testName "Kiểm tra Chủ đề E - Bài 2" .
+
+data:test_ASSESS_K6_E3_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_E3_2024" ;
+    edu:testName "Kiểm tra Chủ đề E - Bài 3" .
+
+data:test_ASSESS_K6_F1_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_F1_2024" ;
+    edu:testName "Kiểm tra Chủ đề F - Bài 1" .
+
+data:test_ASSESS_K6_HK1_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_HK1_2024" ;
+    edu:testName "Thi học kỳ 1" .
+
+data:test_ASSESS_K6_HK2_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_HK2_2024" ;
+    edu:testName "Thi học kỳ 2" .
+
+data:test_ASSESS_K6_CN_2024 a edu:Test ;
+    edu:testId "ASSESS_K6_CN_2024" ;
+    edu:testName "Điểm cả năm" .
+

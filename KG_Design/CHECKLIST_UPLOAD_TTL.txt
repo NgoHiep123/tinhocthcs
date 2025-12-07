@@ -1,0 +1,166 @@
+═══════════════════════════════════════════════════════════
+    📊 CHECKLIST UPLOAD TTL VÀO GRAPHDB DESKTOP
+═══════════════════════════════════════════════════════════
+
+📌 CHUẨN BỊ:
+□ Đã cài GraphDB Desktop
+□ Đã tạo repository "tin_hoc_thcs"
+□ Ruleset: RDFS-Plus hoặc OWL-Horst
+
+═══════════════════════════════════════════════════════════
+
+🏛️ TẦNG A - SCHEMA (Ontology)
+Mục đích: Định nghĩa Class, Property
+Upload ĐẦU TIÊN và QUAN TRỌNG NHẤT!
+
+□ 1. ✅ schema/kg_schema_chuan.ttl
+   └─ Import → Upload → Import
+   └─ Kiểm tra: SELECT (COUNT(*) as ?count) WHERE {?s ?p ?o}
+   └─ Expected: ~500 triples
+
+═══════════════════════════════════════════════════════════
+
+📚 TẦNG B - MASTER DATA (Dữ liệu tham chiếu)
+Mục đích: Dữ liệu cơ bản được tham chiếu bởi các entity khác
+
+□ 2. ✅ data/grade6/ttl/grades.ttl
+   └─ Lớp học: Grade 6, 7, 8, 9
+
+□ 3. ✅ data/grade6/ttl/classes.ttl
+   └─ Các lớp: 6A, 6B, 6C...
+
+□ 4. ✅ data/grade6/ttl/topics.ttl
+   └─ Chủ đề: Topic A, B, C, D, E, F
+
+□ 5. ✅ data/grade6/ttl/skills.ttl
+   └─ Kỹ năng học tập
+
+□ 6. ✅ data/grade6/ttl/lessons.ttl
+   └─ Bài học: A1, A2, B1, B2...
+
+□ 7. ✅ data/grade6/ttl/resources.ttl
+   └─ Tài nguyên học tập
+
+═══════════════════════════════════════════════════════════
+
+👥 TẦNG C - ENTITY DATA (Thực thể)
+Mục đích: Dữ liệu người dùng, câu hỏi, bài test
+
+□ 8. ✅ data/grade6/ttl/students.ttl
+   └─ HOẶC students_updated.ttl (chọn 1 trong 2)
+   └─ Học sinh và thông tin cá nhân
+
+□ 9. ✅ data/grade6/ttl/questions_updated.ttl
+   └─ Câu hỏi trắc nghiệm
+
+□ 10. ✅ data/grade6/ttl/tests.ttl
+    └─ Bài kiểm tra
+
+═══════════════════════════════════════════════════════════
+
+🔗 TẦNG D - RELATIONSHIP DATA (Quan hệ)
+Mục đích: Quan hệ giữa các entities
+
+□ 11. ✅ data/grade6/ttl/prerequisites.ttl
+    └─ Quan hệ tiên quyết giữa các bài học
+
+□ 12. ✅ data/grade6/ttl/teachers_assignments.ttl
+    └─ Phân công giáo viên dạy lớp
+
+□ 13. ✅ data/grade6/ttl/question_skill.ttl
+    └─ Quan hệ câu hỏi - kỹ năng
+
+□ 14. ✅ data/grade6/ttl/resource_skill.ttl
+    └─ Quan hệ tài nguyên - kỹ năng
+
+□ 15. ✅ data/grade6/ttl/questions_in_tests.ttl
+    └─ Câu hỏi nằm trong bài test nào
+
+═══════════════════════════════════════════════════════════
+
+📊 TẦNG E - TRANSACTION DATA (Giao dịch)
+Mục đích: Kết quả, điểm số, mastery
+
+□ 16. ✅ data/grade6/ttl/mastery.ttl
+    └─ Mức độ thành thạo của học sinh
+
+□ 17. ✅ data/grade6/ttl/test_results.ttl
+    └─ Kết quả bài kiểm tra của học sinh
+
+═══════════════════════════════════════════════════════════
+
+✅ KIỂM TRA SAU KHI UPLOAD XONG
+
+□ Tổng triples: ~5,000-10,000
+  Query: SELECT (COUNT(*) as ?count) WHERE {?s ?p ?o}
+
+□ Kiểm tra Classes:
+  SELECT DISTINCT ?class (COUNT(?instance) as ?count)
+  WHERE { ?instance a ?class }
+  GROUP BY ?class ORDER BY DESC(?count)
+
+□ Test query Students:
+  PREFIX ex: <http://example.org/tin_hoc#>
+  SELECT ?student ?name ?class WHERE {
+    ?student a ex:Student ;
+             ex:hasName ?name ;
+             ex:belongsToClass ?classIRI .
+    ?classIRI ex:hasName ?class .
+  } LIMIT 10
+
+□ Test query Lessons:
+  PREFIX ex: <http://example.org/tin_hoc#>
+  SELECT ?lesson ?name ?topic WHERE {
+    ?lesson a ex:Lesson ;
+            ex:hasName ?name ;
+            ex:belongsToTopic ?topicIRI .
+    ?topicIRI ex:hasName ?topic .
+  } LIMIT 10
+
+□ Test query Questions:
+  PREFIX ex: <http://example.org/tin_hoc#>
+  SELECT ?question ?text ?lesson WHERE {
+    ?question a ex:Question ;
+              ex:hasQuestionText ?text ;
+              ex:belongsToLesson ?lessonIRI .
+    ?lessonIRI ex:hasName ?lesson .
+  } LIMIT 10
+
+═══════════════════════════════════════════════════════════
+
+⚠️ LƯU Ý
+
+❗ PHẢI upload theo đúng thứ tự từ tầng A → E
+❗ KHÔNG được bỏ qua file nào
+❗ KHÔNG được đảo thứ tự upload
+❗ NẾU gặp lỗi → Clear repository → Upload lại từ đầu
+
+═══════════════════════════════════════════════════════════
+
+💡 TIPS
+
+✓ Upload từng file một
+✓ Check count sau mỗi file
+✓ Backup repository trước khi upload nhiều
+✓ Nếu chậm: Restart GraphDB Desktop
+
+═══════════════════════════════════════════════════════════
+
+🎯 KẾT QUẢ CUỐI CÙNG
+
+Tổng: 17 files TTL đã upload thành công
+Repository: tin_hoc_thcs
+Triples: ~5,000-10,000
+Status: ✅ READY FOR USE
+
+═══════════════════════════════════════════════════════════
+
+Ghi chú thêm:
+
+
+Ngày upload: _______________
+Người upload: ______________
+Triples count: ______________
+
+═══════════════════════════════════════════════════════════
+

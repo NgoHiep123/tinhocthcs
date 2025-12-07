@@ -1,0 +1,162 @@
+═══════════════════════════════════════════════════════════
+    🔍 QUERIES DEBUG SCHEMA - TÌM VẤN ĐỀ
+═══════════════════════════════════════════════════════════
+
+⚠️  VẤN ĐỀ: Chỉ có 70 triples, queries không trả về dữ liệu
+→ Cần debug để tìm nguyên nhân
+
+═══════════════════════════════════════════════════════════
+
+1️⃣ KIỂM TRA TẤT CẢ NAMESPACE TRONG REPOSITORY
+───────────────────────────────────────────────────────────
+SELECT DISTINCT ?namespace
+WHERE {
+  ?s ?p ?o
+  BIND(REPLACE(STR(?s), "/[^/]*$", "") AS ?namespace)
+}
+ORDER BY ?namespace
+
+→ Xem có namespace nào trong repository
+
+═══════════════════════════════════════════════════════════
+
+2️⃣ KIỂM TRA TẤT CẢ CLASSES (KHÔNG FILTER NAMESPACE)
+───────────────────────────────────────────────────────────
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?class ?label
+WHERE {
+  ?class a rdfs:Class .
+  OPTIONAL { ?class rdfs:label ?label }
+}
+ORDER BY ?class
+
+→ Xem có classes nào, namespace là gì
+
+═══════════════════════════════════════════════════════════
+
+3️⃣ KIỂM TRA TẤT CẢ PROPERTIES (KHÔNG FILTER NAMESPACE)
+───────────────────────────────────────────────────────────
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?property ?label
+WHERE {
+  ?property a rdf:Property .
+  OPTIONAL { ?property rdfs:label ?label }
+}
+ORDER BY ?property
+
+→ Xem có properties nào, namespace là gì
+
+═══════════════════════════════════════════════════════════
+
+4️⃣ XEM TẤT CẢ TRIPLES (LIMIT 100)
+───────────────────────────────────────────────────────────
+SELECT ?s ?p ?o
+WHERE {
+  ?s ?p ?o
+}
+LIMIT 100
+
+→ Xem thực tế có gì trong repository
+
+═══════════════════════════════════════════════════════════
+
+5️⃣ KIỂM TRA NAMESPACE "edu:" CỤ THỂ
+───────────────────────────────────────────────────────────
+SELECT ?s ?p ?o
+WHERE {
+  ?s ?p ?o
+  FILTER(STRSTARTS(STR(?s), "http://education.vn/ontology#") || 
+         STRSTARTS(STR(?p), "http://education.vn/ontology#") ||
+         STRSTARTS(STR(?o), "http://education.vn/ontology#"))
+}
+LIMIT 50
+
+→ Xem có triples nào với namespace edu: không
+
+═══════════════════════════════════════════════════════════
+
+6️⃣ KIỂM TRA PREFIX ĐÃ ĐƯỢC KHAI BÁO CHƯA
+───────────────────────────────────────────────────────────
+SELECT ?s ?p ?o
+WHERE {
+  ?s ?p ?o
+  FILTER(CONTAINS(STR(?s), "education") || 
+         CONTAINS(STR(?p), "education") ||
+         CONTAINS(STR(?o), "education"))
+}
+LIMIT 50
+
+→ Tìm bất kỳ thứ gì có chứa "education"
+
+═══════════════════════════════════════════════════════════
+
+7️⃣ XEM CẤU TRÚC FILE SCHEMA THỰC TẾ
+───────────────────────────────────────────────────────────
+SELECT ?s ?p ?o
+WHERE {
+  ?s ?p ?o
+}
+ORDER BY ?s ?p
+LIMIT 100
+
+→ Xem cấu trúc triples thực tế
+
+═══════════════════════════════════════════════════════════
+
+8️⃣ ĐẾM THEO NAMESPACE
+───────────────────────────────────────────────────────────
+SELECT 
+  (COUNT(*) as ?total) 
+  (COUNT(DISTINCT ?s) as ?subjects)
+  (COUNT(DISTINCT ?p) as ?predicates)
+  (COUNT(DISTINCT ?o) as ?objects)
+WHERE {
+  ?s ?p ?o
+}
+
+→ Xem tổng quan về dữ liệu
+
+═══════════════════════════════════════════════════════════
+
+9️⃣ TÌM TẤT CẢ RDFS:CLASS
+───────────────────────────────────────────────────────────
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?class ?label
+WHERE {
+  ?class a rdfs:Class .
+  OPTIONAL { ?class rdfs:label ?label }
+}
+ORDER BY ?class
+
+→ Xem có classes nào được định nghĩa
+
+═══════════════════════════════════════════════════════════
+
+🔟 TÌM TẤT CẢ RDF:PROPERTY
+───────────────────────────────────────────────────────────
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?property ?label ?domain ?range
+WHERE {
+  ?property a rdf:Property .
+  OPTIONAL { ?property rdfs:label ?label }
+  OPTIONAL { ?property rdfs:domain ?domain }
+  OPTIONAL { ?property rdfs:range ?range }
+}
+ORDER BY ?property
+
+→ Xem có properties nào được định nghĩa
+
+═══════════════════════════════════════════════════════════
+
+✅ CHẠY CÁC QUERIES NÀY ĐỂ TÌM VẤN ĐỀ
+
+Sau khi chạy, gửi kết quả để tôi phân tích!
+
+═══════════════════════════════════════════════════════════
+

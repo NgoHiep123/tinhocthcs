@@ -1,0 +1,99 @@
+@prefix data: <http://education.vn/data/> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ========================================
+# TEACHERS
+# ========================================
+
+<http://education.vn/data/teacher/tin_01> a edu:Teacher ;
+  edu:teacherId "tin_01" ;
+  edu:fullName "Ngô Tiến Hiệp" ;
+  edu:expertise "Tin học" .
+
+<http://education.vn/data/teacher/tin_02> a edu:Teacher ;
+  edu:teacherId "tin_02" ;
+  edu:fullName "Cô Hà" ;
+  edu:expertise "Tin học" .
+
+<http://education.vn/data/teacher/tin_03> a edu:Teacher ;
+  edu:teacherId "tin_03" ;
+  edu:fullName "Trần Gia Huy" ;
+  edu:expertise "Tin học" .
+
+<http://education.vn/data/teacher/tin_04> a edu:Teacher ;
+  edu:teacherId "tin_04" ;
+  edu:fullName "Tuấn Anh" ;
+  edu:expertise "Tin học" .
+
+<http://education.vn/data/teacher/tin_05> a edu:Teacher ;
+  edu:teacherId "tin_05" ;
+  edu:fullName "Trần Thị Kim Thảo" ;
+  edu:expertise "Tin học" .
+
+<http://education.vn/data/teacher/tin_07> a edu:Teacher ;
+  edu:teacherId "tin_07" ;
+  edu:fullName "Nguyễn Xuân Sơn" ;
+  edu:expertise "Tin học" .
+
+<http://education.vn/data/teacher/tin_06> a edu:Teacher ;
+  edu:teacherId "tin_06" ;
+  edu:fullName "Nguyễn Đình Nhân" ;
+  edu:expertise "Tin học" .
+
+# ========================================
+# TEACHER ASSIGNMENTS
+# ========================================
+
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/6_14> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/6_15> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/6_16> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/6_17> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/6_18> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/7_19> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/7_20> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/7_21> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/7_22> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/7_23> .
+<http://education.vn/data/teacher/tin_01> edu:teaches <http://education.vn/data/class/7_24> .
+<http://education.vn/data/teacher/tin_02> edu:teaches <http://education.vn/data/class/6_5> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/8_21> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/8_22> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/8_23> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/8_24> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/8_25> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/8_26> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/8_27> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/8_28> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/9_19> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/9_20> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/9_21> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/9_22> .
+<http://education.vn/data/teacher/tin_03> edu:teaches <http://education.vn/data/class/9_23> .
+<http://education.vn/data/teacher/tin_04> edu:teaches <http://education.vn/data/class/8_1> .
+<http://education.vn/data/teacher/tin_04> edu:teaches <http://education.vn/data/class/8_2> .
+<http://education.vn/data/teacher/tin_04> edu:teaches <http://education.vn/data/class/8_3> .
+<http://education.vn/data/teacher/tin_04> edu:teaches <http://education.vn/data/class/8_4> .
+<http://education.vn/data/teacher/tin_04> edu:teaches <http://education.vn/data/class/9_1> .
+<http://education.vn/data/teacher/tin_04> edu:teaches <http://education.vn/data/class/9_2> .
+<http://education.vn/data/teacher/tin_04> edu:teaches <http://education.vn/data/class/9_3> .
+<http://education.vn/data/teacher/tin_02> edu:teaches <http://education.vn/data/class/7_3> .
+<http://education.vn/data/teacher/tin_02> edu:teaches <http://education.vn/data/class/7_4> .
+<http://education.vn/data/teacher/tin_02> edu:teaches <http://education.vn/data/class/8_5> .
+<http://education.vn/data/teacher/tin_02> edu:teaches <http://education.vn/data/class/8_6> .
+<http://education.vn/data/teacher/tin_02> edu:teaches <http://education.vn/data/class/9_4> .
+<http://education.vn/data/teacher/tin_02> edu:teaches <http://education.vn/data/class/9_5> .
+<http://education.vn/data/teacher/tin_05> edu:teaches <http://education.vn/data/class/7_11> .
+<http://education.vn/data/teacher/tin_05> edu:teaches <http://education.vn/data/class/7_12> .
+<http://education.vn/data/teacher/tin_05> edu:teaches <http://education.vn/data/class/7_13> .
+<http://education.vn/data/teacher/tin_05> edu:teaches <http://education.vn/data/class/7_14> .
+<http://education.vn/data/teacher/tin_05> edu:teaches <http://education.vn/data/class/7_16> .
+<http://education.vn/data/teacher/tin_05> edu:teaches <http://education.vn/data/class/7_8> .
+<http://education.vn/data/teacher/tin_07> edu:teaches <http://education.vn/data/class/9_11> .
+<http://education.vn/data/teacher/tin_07> edu:teaches <http://education.vn/data/class/9_12> .
+<http://education.vn/data/teacher/tin_07> edu:teaches <http://education.vn/data/class/9_13> .
+<http://education.vn/data/teacher/tin_07> edu:teaches <http://education.vn/data/class/9_14> .
+<http://education.vn/data/teacher/tin_07> edu:teaches <http://education.vn/data/class/9_9> .
+<http://education.vn/data/teacher/tin_06> edu:teaches <http://education.vn/data/class/9_6> .
+<http://education.vn/data/teacher/tin_06> edu:teaches <http://education.vn/data/class/9_7> .
+<http://education.vn/data/teacher/tin_06> edu:teaches <http://education.vn/data/class/9_8> .

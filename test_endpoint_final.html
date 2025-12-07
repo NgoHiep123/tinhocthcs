@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Endpoint - Kiểm Tra Cuối Cùng</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 900px; margin: 0 auto; background: #f5f5f5; }
+    .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    h1 { color: #333; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+    button { padding: 12px 24px; font-size: 16px; margin: 10px 5px; cursor: pointer; border: none; border-radius: 5px; }
+    .btn-primary { background: #667eea; color: white; }
+    .btn-primary:hover { background: #5568d3; }
+    .btn-success { background: #10b981; color: white; }
+    .btn-success:hover { background: #059669; }
+    #result { margin-top: 20px; padding: 20px; border: 2px solid #ddd; border-radius: 5px; background: #f9f9f9; }
+    .success { color: #10b981; font-weight: bold; }
+    .error { color: #ef4444; font-weight: bold; }
+    .info { color: #3b82f6; }
+    input { padding: 10px; margin: 5px; width: 250px; border: 1px solid #ddd; border-radius: 5px; }
+    label { display: inline-block; width: 150px; font-weight: bold; }
+    pre { background: #1e293b; color: #f1f5f9; padding: 15px; border-radius: 5px; overflow-x: auto; font-size: 12px; }
+    .checklist { background: #f0f4ff; padding: 15px; border-radius: 5px; margin: 15px 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Test Endpoint Google Apps Script - Kiểm Tra Cuối Cùng</h1>
+    
+    <div class="checklist">
+      <h3>✅ Endpoint hiện tại:</h3>
+      <p><strong>ID:</strong> AKfycbydBX3A2x7rES_Re5OnfdI3aybBCp-vBa7YNdJ2UUHzjGyo1wFK2mqvLLmdypJkHnBDzw</p>
+      <p><strong>URL:</strong> <code>https://script.google.com/a/macros/asianintlschool.edu.vn/s/AKfycbydBX3A2x7rES_Re5OnfdI3aybBCp-vBa7YNdJ2UUHzjGyo1wFK2mqvLLmdypJkHnBDzw/exec</code></p>
+    </div>
+    
+    <div>
+      <h3>📝 Nhập thông tin test:</h3>
+      <label>Tên học sinh:</label>
+      <input type="text" id="student_name" value="Nguyễn Văn A"><br>
+      
+      <label>Lớp:</label>
+      <input type="text" id="class_name" value="6/14"><br>
+      
+      <label>Mã bài:</label>
+      <input type="text" id="quiz_id" value="K6_B1"><br>
+      
+      <label>Điểm:</label>
+      <input type="number" id="score" value="8"><br>
+      
+      <label>Tổng số:</label>
+      <input type="number" id="total" value="10"><br>
+      
+      <label>Thời gian (giây):</label>
+      <input type="number" id="duration" value="120"><br>
+    </div>
+    
+    <div style="margin-top: 20px;">
+      <button class="btn-primary" onclick="testDirectURL()">1. Test URL Trực Tiếp (Mở Tab Mới)</button>
+      <button class="btn-primary" onclick="testWithFetch()">2. Test Với Fetch (No-CORS)</button>
+      <button class="btn-success" onclick="checkExecutionLogs()">3. Hướng Dẫn Kiểm Tra Logs</button>
+    </div>
+    
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const ENDPOINT = "https://script.google.com/a/macros/asianintlschool.edu.vn/s/AKfycbydBX3A2x7rES_Re5OnfdI3aybBCp-vBa7YNdJ2UUHzjGyo1wFK2mqvLLmdypJkHnBDzw/exec";
+
+    function getData() {
+      return {
+        student_name: document.getElementById('student_name').value,
+        class_name: document.getElementById('class_name').value,
+        quiz_id: document.getElementById('quiz_id').value,
+        score: document.getElementById('score').value,
+        total: document.getElementById('total').value,
+        duration: document.getElementById('duration').value
+      };
+    }
+
+    function testDirectURL() {
+      const data = getData();
+      const url = `${ENDPOINT}?student_name=${encodeURIComponent(data.student_name)}&class_name=${encodeURIComponent(data.class_name)}&quiz_id=${data.quiz_id}&score=${data.score}&total=${data.total}&duration=${data.duration}`;
+      
+      // Mở URL trong tab mới
+      window.open(url, '_blank');
+      
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `
+        <div class="success">
+          <h3>✅ Đã mở URL trong tab mới</h3>
+          <p>📝 <strong>Bước tiếp theo:</strong></p>
+          <ol>
+            <li>Xem tab mới - sẽ hiển thị JSON response</li>
+            <li>Nếu thấy <code>{"success":true,...}</code> → Script hoạt động!</li>
+            <li>Mở Google Sheet <code>result_thcs</code> để kiểm tra có dòng mới không</li>
+          </ol>
+          <p><strong>URL đã gửi:</strong></p>
+          <pre>${url}</pre>
+        </div>
+      `;
+    }
+
+    async function testWithFetch() {
+      const resultDiv = document.getElementById('result');
+      const data = getData();
+      
+      resultDiv.innerHTML = '<p class="info">🔄 Đang test với fetch (no-cors mode)...</p>';
+      
+      const url = `${ENDPOINT}?student_name=${encodeURIComponent(data.student_name)}&class_name=${encodeURIComponent(data.class_name)}&quiz_id=${data.quiz_id}&score=${data.score}&total=${data.total}&duration=${data.duration}`;
+      
+      console.log('Testing URL:', url);
+      console.log('Data:', data);
+      
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          mode: 'no-cors',
+          cache: 'no-cache'
+        });
+        
+        console.log('Request sent (no-cors mode)');
+        
+        // Đợi một chút
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        resultDiv.innerHTML = `
+          <div class="success">
+            <h3>✅ Request đã được gửi (no-cors mode)</h3>
+            <p>⚠️ <strong>Lưu ý:</strong> Với no-cors, không thể đọc response từ JavaScript.</p>
+            <p>📝 <strong>Để kiểm tra:</strong></p>
+            <ol>
+              <li>Mở Google Sheet <code>result_thcs</code></li>
+              <li>Kiểm tra có dòng mới được thêm vào không</li>
+              <li>Hoặc xem Execution Logs trong Google Apps Script</li>
+            </ol>
+            <p><strong>URL đã gửi:</strong></p>
+            <pre>${url}</pre>
+            <p><strong>Dữ liệu:</strong></p>
+            <pre>${JSON.stringify(data, null, 2)}</pre>
+          </div>
+        `;
+        
+      } catch (e) {
+        resultDiv.innerHTML = `
+          <div class="error">
+            <h3>❌ Lỗi khi gửi request:</h3>
+            <pre>${e.message}</pre>
+            <p>💡 Kiểm tra console (F12) để xem chi tiết lỗi.</p>
+          </div>
+        `;
+        console.error('Error:', e);
+      }
+    }
+
+    function checkExecutionLogs() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `
+        <div class="info">
+          <h3>📋 Hướng Dẫn Kiểm Tra Execution Logs</h3>
+          <ol>
+            <li><strong>Vào Google Apps Script:</strong>
+              <ul>
+                <li>Truy cập: <a href="https://script.google.com" target="_blank">https://script.google.com</a></li>
+                <li>Đăng nhập bằng tài khoản <code>@asianintlschool.edu.vn</code></li>
+              </ul>
+            </li>
+            <li><strong>Tìm script:</strong>
+              <ul>
+                <li>Tìm script có ID: <code>AKfycbydBX3A2x7rES_Re5OnfdI3aybBCp-vBa7YNdJ2UUHzjGyo1wFK2mqvLLmdypJkHnBDzw</code></li>
+                <li>Hoặc tìm script liên quan đến "result_thcs"</li>
+              </ul>
+            </li>
+            <li><strong>Xem Execution Logs:</strong>
+              <ul>
+                <li>Click vào menu <strong>"Executions"</strong> (Lịch sử thực thi)</li>
+                <li>Xem các execution gần đây</li>
+                <li>Kiểm tra:
+                  <ul>
+                    <li>✅ <strong>Success</strong> (màu xanh) = Request đến được và chạy thành công</li>
+                    <li>❌ <strong>Failed</strong> (màu đỏ) = Có lỗi, click để xem chi tiết</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><strong>Xem Logs Chi Tiết:</strong>
+              <ul>
+                <li>Click vào một execution để xem chi tiết</li>
+                <li>Xem phần <strong>"Logs"</strong> để biết:
+                  <ul>
+                    <li>Request có đến được không?</li>
+                    <li>Dữ liệu có đúng không?</li>
+                    <li>Có lỗi gì không?</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
+

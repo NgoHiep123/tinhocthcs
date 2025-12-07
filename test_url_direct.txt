@@ -1,0 +1,13 @@
+Test URL trực tiếp - Copy và paste vào browser:
+
+https://script.google.com/a/macros/asianintlschool.edu.vn/s/AKfycbydBX3A2x7rES_Re5OnfdI3aybBCp-vBa7YNdJ2UUHzjGyo1wFK2mqvLLmdypJkHnBDzw/exec?student_name=Test&class_name=6/1&quiz_id=K6_B1&score=8&total=10&duration=120
+
+Kết quả mong đợi:
+- Browser hiển thị JSON: {"success":true,"message":"Đã lưu kết quả thành công",...}
+- Google Sheet có dòng mới với:
+  - StudentName: Test
+  - Class: 6/1
+  - QuizID: K6_B1
+  - Score: 8
+  - Total: 10
+

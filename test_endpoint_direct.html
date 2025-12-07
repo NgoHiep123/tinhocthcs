@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Endpoint Trực Tiếp</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+    button { padding: 10px 20px; font-size: 16px; margin: 10px 5px; cursor: pointer; }
+    #result { margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background: #f9f9f9; }
+    .success { color: green; }
+    .error { color: red; }
+    input { padding: 8px; margin: 5px; width: 200px; }
+  </style>
+</head>
+<body>
+  <h1>🧪 Test Endpoint Google Apps Script</h1>
+  
+  <div>
+    <h3>Nhập thông tin test:</h3>
+    <label>Tên học sinh: <input type="text" id="student_name" value="Nguyễn Văn A"></label><br>
+    <label>Lớp: <input type="text" id="class_name" value="6/14"></label><br>
+    <label>Mã bài: <input type="text" id="quiz_id" value="K6_A1"></label><br>
+    <label>Điểm: <input type="number" id="score" value="8"></label><br>
+    <label>Tổng số: <input type="number" id="total" value="10"></label><br>
+    <label>Thời gian (giây): <input type="number" id="duration" value="120"></label><br>
+  </div>
+  
+  <div>
+    <button onclick="testWithNoCors()">Test với no-cors (như code hiện tại)</button>
+    <button onclick="testWithCors()">Test với cors (xem lỗi)</button>
+    <button onclick="testDirectURL()">Mở URL trực tiếp</button>
+  </div>
+  
+  <div id="result"></div>
+
+  <script>
+    const ENDPOINT = "https://script.google.com/a/macros/asianintlschool.edu.vn/s/AKfycbxoj7jkOooCg_2ciiNIgbBjsLc2MIcGUgnIm_I43eYjPGiUOKwnloqUBCXWZOlOspWxLA/exec";
+
+    function getData() {
+      return {
+        student_name: document.getElementById('student_name').value,
+        class_name: document.getElementById('class_name').value,
+        quiz_id: document.getElementById('quiz_id').value,
+        score: document.getElementById('score').value,
+        total: document.getElementById('total').value,
+        duration: document.getElementById('duration').value
+      };
+    }
+
+    async function testWithNoCors() {
+      const resultDiv = document.getElementById('result');
+      const data = getData();
+      
+      resultDiv.innerHTML = '<p>🔄 Đang test với no-cors mode...</p>';
+      
+      const url = `${ENDPOINT}?student_name=${encodeURIComponent(data.student_name)}&class_name=${encodeURIComponent(data.class_name)}&quiz_id=${data.quiz_id}&score=${data.score}&total=${data.total}&duration=${data.duration}`;
+      
+      console.log('Testing URL:', url);
+      
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          mode: 'no-cors',
+          cache: 'no-cache'
+        });
+        
+        resultDiv.innerHTML = `
+          <p class="success">✅ Request đã được gửi (no-cors mode)</p>
+          <p>⚠️ Với no-cors, không thể đọc response</p>
+          <p><strong>URL đã gửi:</strong></p>
+          <pre style="background: white; padding: 10px; overflow-x: auto;">${url}</pre>
+          <p>📝 <strong>Kiểm tra Google Sheet để xem có dữ liệu mới không!</strong></p>
+          <p>⏱️ Đợi 2-3 giây rồi refresh Google Sheet</p>
+        `;
+        
+      } catch (e) {
+        resultDiv.innerHTML = `<p class="error">❌ Lỗi: ${e.message}</p>`;
+        console.error('Error:', e);
+      }
+    }
+
+    async function testWithCors() {
+      const resultDiv = document.getElementById('result');
+      const data = getData();
+      
+      resultDiv.innerHTML = '<p>🔄 Đang test với cors mode...</p>';
+      
+      const url = `${ENDPOINT}?student_name=${encodeURIComponent(data.student_name)}&class_name=${encodeURIComponent(data.class_name)}&quiz_id=${data.quiz_id}&score=${data.score}&total=${data.total}&duration=${data.duration}`;
+      
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          mode: 'cors'
+        });
+        
+        const text = await response.text();
+        
+        resultDiv.innerHTML = `
+          <p class="success">✅ Request thành công!</p>
+          <p><strong>Response:</strong></p>
+          <pre style="background: white; padding: 10px; overflow-x: auto;">${text}</pre>
+        `;
+        
+      } catch (e) {
+        resultDiv.innerHTML = `
+          <p class="error">❌ CORS Error (đây là bình thường):</p>
+          <pre>${e.message}</pre>
+          <p>💡 Lỗi CORS là bình thường với Google Apps Script. Request vẫn có thể đã được gửi thành công.</p>
+          <p>📝 Kiểm tra Google Sheet để xác nhận!</p>
+        `;
+        console.error('CORS Error (expected):', e);
+      }
+    }
+
+    function testDirectURL() {
+      const data = getData();
+      const url = `${ENDPOINT}?student_name=${encodeURIComponent(data.student_name)}&class_name=${encodeURIComponent(data.class_name)}&quiz_id=${data.quiz_id}&score=${data.score}&total=${data.total}&duration=${data.duration}`;
+      
+      window.open(url, '_blank');
+      
+      document.getElementById('result').innerHTML = `
+        <p class="success">✅ Đã mở URL trong tab mới</p>
+        <p>📝 Xem tab mới để xem response JSON</p>
+        <p>📊 Sau đó kiểm tra Google Sheet để xem có dữ liệu mới không</p>
+      `;
+    }
+  </script>
+</body>
+</html>
+

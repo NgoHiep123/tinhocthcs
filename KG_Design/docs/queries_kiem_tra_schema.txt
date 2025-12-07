@@ -1,0 +1,191 @@
+═══════════════════════════════════════════════════════════
+    📊 QUERIES KIỂM TRA SCHEMA - COPY & PASTE
+═══════════════════════════════════════════════════════════
+
+⚠️  LƯU Ý: Copy từng query vào GraphDB Desktop → SPARQL → Execute
+
+═══════════════════════════════════════════════════════════
+
+1️⃣ KIỂM TRA TỔNG SỐ TRIPLES
+───────────────────────────────────────────────────────────
+SELECT (COUNT(*) as ?count) 
+WHERE {
+  ?s ?p ?o
+}
+
+Kỳ vọng: ~500 triples
+
+═══════════════════════════════════════════════════════════
+
+2️⃣ KIỂM TRA CÁC CLASSES (12 classes)
+───────────────────────────────────────────────────────────
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?class ?label ?comment
+WHERE {
+  ?class a rdfs:Class ;
+         rdfs:label ?label .
+  OPTIONAL { ?class rdfs:comment ?comment }
+  FILTER(STRSTARTS(STR(?class), "http://education.vn/ontology#"))
+}
+ORDER BY ?label
+
+Kỳ vọng: 12 classes (Student, Teacher, Class, Grade, Topic, Lesson, Question, Skill, Resource, Test, TestResult, Mastery)
+
+═══════════════════════════════════════════════════════════
+
+3️⃣ KIỂM TRA CÁC PROPERTIES (25+ properties)
+───────────────────────────────────────────────────────────
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?property ?label ?comment
+WHERE {
+  ?property a rdf:Property ;
+            rdfs:label ?label .
+  OPTIONAL { ?property rdfs:comment ?comment }
+  FILTER(STRSTARTS(STR(?property), "http://education.vn/ontology#"))
+}
+ORDER BY ?label
+
+Kỳ vọng: 25+ properties
+
+═══════════════════════════════════════════════════════════
+
+4️⃣ KIỂM TRA RELATIONSHIPS (Object Properties)
+───────────────────────────────────────────────────────────
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?property ?label ?domain ?range
+WHERE {
+  ?property a rdf:Property ;
+            rdfs:label ?label ;
+            rdfs:domain ?domain ;
+            rdfs:range ?range .
+  FILTER(STRSTARTS(STR(?property), "http://education.vn/ontology#"))
+  FILTER(STRSTARTS(STR(?range), "http://education.vn/ontology#"))
+}
+ORDER BY ?label
+
+Kỳ vọng: 17 relationships (belongsToClass, belongsToGrade, teaches, etc.)
+
+═══════════════════════════════════════════════════════════
+
+5️⃣ KIỂM TRA DATA PROPERTIES (String, Integer, Decimal)
+───────────────────────────────────────────────────────────
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?property ?label ?range
+WHERE {
+  ?property a rdf:Property ;
+            rdfs:label ?label ;
+            rdfs:range ?range .
+  FILTER(STRSTARTS(STR(?property), "http://education.vn/ontology#"))
+  FILTER(?range = xsd:string || ?range = xsd:integer || ?range = xsd:decimal || ?range = xsd:date || ?range = xsd:dateTime)
+}
+ORDER BY ?label
+
+Kỳ vọng: Các properties như fullName, score, duration, testDate, etc.
+
+═══════════════════════════════════════════════════════════
+
+6️⃣ KIỂM TRA DOMAIN & RANGE CỦA MỘT PROPERTY CỤ THỂ
+───────────────────────────────────────────────────────────
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?property ?label ?domain ?range
+WHERE {
+  ?property rdfs:label "thuộc lớp"@vi ;
+            rdfs:domain ?domain ;
+            rdfs:range ?range .
+}
+
+Kỳ vọng: belongsToClass (Student → Class)
+
+═══════════════════════════════════════════════════════════
+
+7️⃣ TỔNG HỢP TẤT CẢ CLASSES VÀ SỐ PROPERTIES CỦA MỖI CLASS
+───────────────────────────────────────────────────────────
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?class ?label (COUNT(DISTINCT ?property) as ?propertyCount)
+WHERE {
+  ?class a rdfs:Class ;
+         rdfs:label ?label .
+  FILTER(STRSTARTS(STR(?class), "http://education.vn/ontology#"))
+  
+  OPTIONAL {
+    ?property rdfs:domain ?class .
+    FILTER(STRSTARTS(STR(?property), "http://education.vn/ontology#"))
+  }
+}
+GROUP BY ?class ?label
+ORDER BY DESC(?propertyCount)
+
+═══════════════════════════════════════════════════════════
+
+8️⃣ KIỂM TRA PROPERTIES CỦA CLASS STUDENT
+───────────────────────────────────────────────────────────
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?property ?label ?range
+WHERE {
+  ?property rdfs:domain edu:Student ;
+            rdfs:label ?label .
+  OPTIONAL { ?property rdfs:range ?range }
+}
+ORDER BY ?label
+
+Kỳ vọng: belongsToClass, fullName, studentId, takeTest, hasResult, hasMastery, weakInTopic
+
+═══════════════════════════════════════════════════════════
+
+9️⃣ KIỂM TRA PROPERTIES CỦA CLASS LESSON
+───────────────────────────────────────────────────────────
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?property ?label ?range
+WHERE {
+  ?property rdfs:domain edu:Lesson ;
+            rdfs:label ?label .
+  OPTIONAL { ?property rdfs:range ?range }
+}
+ORDER BY ?label
+
+Kỳ vọng: belongsToTopic, lessonId, label, recommendedFor
+
+═══════════════════════════════════════════════════════════
+
+🔟 KIỂM TRA PROPERTIES CỦA CLASS QUESTION
+───────────────────────────────────────────────────────────
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?property ?label ?range
+WHERE {
+  ?property rdfs:domain edu:Question ;
+            rdfs:label ?label .
+  OPTIONAL { ?property rdfs:range ?range }
+}
+ORDER BY ?label
+
+Kỳ vọng: belongsToLesson, requiresSkill, q_id, questionText, correctOption, difficulty
+
+═══════════════════════════════════════════════════════════
+
+✅ NẾU TẤT CẢ QUERIES TRÊN CHẠY ĐÚNG → SCHEMA ĐÃ SẴN SÀNG!
+
+Bước tiếp theo: Upload Tầng B - Master Data
+Bắt đầu với: grades.ttl
+
+═══════════════════════════════════════════════════════════
+

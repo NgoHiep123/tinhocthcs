@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Google Apps Script Endpoint</title>
+</head>
+<body>
+  <h1>Test Endpoint Google Apps Script</h1>
+  <button onclick="testEndpoint()">Test Endpoint</button>
+  <div id="result"></div>
+
+  <script>
+    const ENDPOINT = "https://script.google.com/a/macros/asianintlschool.edu.vn/s/AKfycbytwRuA512UKakrHpIoURxfAn8-h6XB8e2Gs-cah4gxZHC7-iJOJrl-Qeg_5O-XAfrNjA/exec";
+
+    async function testEndpoint() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = '<p>Đang test...</p>';
+
+      // Test data
+      const testData = {
+        student_name: 'Test Student',
+        class_name: '6/1',
+        quiz_id: 'K6_A1',
+        score: 8,
+        total: 10,
+        duration: 120
+      };
+
+      const url = `${ENDPOINT}?student_name=${encodeURIComponent(testData.student_name)}&class_name=${encodeURIComponent(testData.class_name)}&quiz_id=${testData.quiz_id}&score=${testData.score}&total=${testData.total}&duration=${testData.duration}`;
+
+      console.log('Testing URL:', url);
+
+      try {
+        // Thử với no-cors (như code hiện tại)
+        const response = await fetch(url, {
+          method: 'GET',
+          mode: 'no-cors'
+        });
+
+        resultDiv.innerHTML = `
+          <p>✅ Request đã được gửi (no-cors mode)</p>
+          <p>⚠️ Không thể đọc response vì no-cors</p>
+          <p>📝 Kiểm tra Google Apps Script logs để xác nhận</p>
+          <p>URL: ${url}</p>
+        `;
+
+        // Thử với cors để xem có lỗi gì không
+        try {
+          const response2 = await fetch(url, {
+            method: 'GET',
+            mode: 'cors'
+          });
+          const text = await response2.text();
+          resultDiv.innerHTML += `<p>✅ Response (cors): ${text}</p>`;
+        } catch (e) {
+          resultDiv.innerHTML += `<p>⚠️ CORS error (expected): ${e.message}</p>`;
+        }
+
+      } catch (e) {
+        resultDiv.innerHTML = `<p>❌ Lỗi: ${e.message}</p>`;
+        console.error('Error:', e);
+      }
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,150 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix data: <http://education.vn/data/> .
+
+data:topic_6_A a edu:Topic ;
+    edu:topicId "A" ;
+    edu:label "Chủ đề A: Máy tính và cộng đồng" ;
+    edu:grade "6"^^xsd:integer ;
+    edu:forGrade data:grade_6 .
+
+data:topic_6_B a edu:Topic ;
+    edu:topicId "B" ;
+    edu:label "Chủ đề B: Mạng máy tính và Internet" ;
+    edu:grade "6"^^xsd:integer ;
+    edu:forGrade data:grade_6 .
+
+data:topic_6_C a edu:Topic ;
+    edu:topicId "C" ;
+    edu:label "Chủ đề C: Tổ chức lưu trữ, tìm kiếm thông tin" ;
+    edu:grade "6"^^xsd:integer ;
+    edu:forGrade data:grade_6 .
+
+data:topic_6_D a edu:Topic ;
+    edu:topicId "D" ;
+    edu:label "Chủ đề D: Đạo đức và pháp luật" ;
+    edu:grade "6"^^xsd:integer ;
+    edu:forGrade data:grade_6 .
+
+data:topic_6_E a edu:Topic ;
+    edu:topicId "E" ;
+    edu:label "Chủ đề E: Ứng dụng tin học" ;
+    edu:grade "6"^^xsd:integer ;
+    edu:forGrade data:grade_6 .
+
+data:topic_6_F a edu:Topic ;
+    edu:topicId "F" ;
+    edu:label "Chủ đề F: Giải quyết vấn đề với sự trợ giúp của máy tính" ;
+    edu:grade "6"^^xsd:integer ;
+    edu:forGrade data:grade_6 .
+
+data:topic_7_A a edu:Topic ;
+    edu:topicId "A" ;
+    edu:label "Chủ đề A: Máy tính và hệ điều hành" ;
+    edu:grade "7"^^xsd:integer ;
+    edu:forGrade data:grade_7 .
+
+data:topic_7_B a edu:Topic ;
+    edu:topicId "B" ;
+    edu:label "Chủ đề B: Soạn thảo văn bản" ;
+    edu:grade "7"^^xsd:integer ;
+    edu:forGrade data:grade_7 .
+
+data:topic_7_C a edu:Topic ;
+    edu:topicId "C" ;
+    edu:label "Chủ đề C: Mạng máy tính và Internet" ;
+    edu:grade "7"^^xsd:integer ;
+    edu:forGrade data:grade_7 .
+
+data:topic_7_D a edu:Topic ;
+    edu:topicId "D" ;
+    edu:label "Chủ đề D: Trình chiếu" ;
+    edu:grade "7"^^xsd:integer ;
+    edu:forGrade data:grade_7 .
+
+data:topic_7_E a edu:Topic ;
+    edu:topicId "E" ;
+    edu:label "Chủ đề E: Thuật toán và lập trình" ;
+    edu:grade "7"^^xsd:integer ;
+    edu:forGrade data:grade_7 .
+
+data:topic_7_F a edu:Topic ;
+    edu:topicId "F" ;
+    edu:label "Chủ đề F: Dự án" ;
+    edu:grade "7"^^xsd:integer ;
+    edu:forGrade data:grade_7 .
+
+data:topic_8_A a edu:Topic ;
+    edu:topicId "A" ;
+    edu:label "Chủ đề A: Máy tính và hệ điều hành" ;
+    edu:grade "8"^^xsd:integer ;
+    edu:forGrade data:grade_8 .
+
+data:topic_8_B a edu:Topic ;
+    edu:topicId "B" ;
+    edu:label "Chủ đề B: Soạn thảo văn bản" ;
+    edu:grade "8"^^xsd:integer ;
+    edu:forGrade data:grade_8 .
+
+data:topic_8_C a edu:Topic ;
+    edu:topicId "C" ;
+    edu:label "Chủ đề C: Mạng máy tính và Internet" ;
+    edu:grade "8"^^xsd:integer ;
+    edu:forGrade data:grade_8 .
+
+data:topic_8_D a edu:Topic ;
+    edu:topicId "D" ;
+    edu:label "Chủ đề D: Trình chiếu" ;
+    edu:grade "8"^^xsd:integer ;
+    edu:forGrade data:grade_8 .
+
+data:topic_8_E a edu:Topic ;
+    edu:topicId "E" ;
+    edu:label "Chủ đề E: Thuật toán và lập trình" ;
+    edu:grade "8"^^xsd:integer ;
+    edu:forGrade data:grade_8 .
+
+data:topic_8_F a edu:Topic ;
+    edu:topicId "F" ;
+    edu:label "Chủ đề F: Dự án" ;
+    edu:grade "8"^^xsd:integer ;
+    edu:forGrade data:grade_8 .
+
+data:topic_9_A a edu:Topic ;
+    edu:topicId "A" ;
+    edu:label "Chủ đề A: Máy tính và hệ điều hành" ;
+    edu:grade "9"^^xsd:integer ;
+    edu:forGrade data:grade_9 .
+
+data:topic_9_B a edu:Topic ;
+    edu:topicId "B" ;
+    edu:label "Chủ đề B: Soạn thảo văn bản" ;
+    edu:grade "9"^^xsd:integer ;
+    edu:forGrade data:grade_9 .
+
+data:topic_9_C a edu:Topic ;
+    edu:topicId "C" ;
+    edu:label "Chủ đề C: Mạng máy tính và Internet" ;
+    edu:grade "9"^^xsd:integer ;
+    edu:forGrade data:grade_9 .
+
+data:topic_9_D a edu:Topic ;
+    edu:topicId "D" ;
+    edu:label "Chủ đề D: Trình chiếu" ;
+    edu:grade "9"^^xsd:integer ;
+    edu:forGrade data:grade_9 .
+
+data:topic_9_E a edu:Topic ;
+    edu:topicId "E" ;
+    edu:label "Chủ đề E: Thuật toán và lập trình" ;
+    edu:grade "9"^^xsd:integer ;
+    edu:forGrade data:grade_9 .
+
+data:topic_9_F a edu:Topic ;
+    edu:topicId "F" ;
+    edu:label "Chủ đề F: Dự án" ;
+    edu:grade "9"^^xsd:integer ;
+    edu:forGrade data:grade_9 .
+

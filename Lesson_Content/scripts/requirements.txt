@@ -1,0 +1,23 @@
+# Requirements for Lesson Content System
+
+# PDF conversion
+pdf2image>=1.16.0
+Pillow>=9.0.0
+
+# DOCX conversion
+python-docx>=0.8.11
+
+# PPTX handling
+python-pptx>=0.6.21
+
+# Optional: Advanced PDF handling
+PyPDF2>=3.0.0
+
+# Optional: Better HTML generation
+beautifulsoup4>=4.11.0
+lxml>=4.9.0
+
+# Optional: Image optimization
+pillow-heif>=0.10.0
+
+

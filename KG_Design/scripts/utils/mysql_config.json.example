@@ -1,0 +1,10 @@
+{
+  "_comment": "File cấu hình MySQL - Đổi tên thành mysql_config.json và điền thông tin thực tế",
+  "_warning": "KHÔNG commit file mysql_config.json lên GitHub!",
+  "host": "localhost",
+  "port": 3306,
+  "database": "tinhoc321_quiz",
+  "user": "your_username",
+  "password": "your_password"
+}
+

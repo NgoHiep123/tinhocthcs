@@ -1,0 +1,195 @@
+======================================================================
+📊 TÓM TẮT SCHEMA ĐỂ KIỂM TRA DIAGRAM
+======================================================================
+
+File schema: kg_schema_chuan.ttl
+Ngày tạo: 1765109786.241684
+
+======================================================================
+📋 PHẦN 1: CÁC LỚP (CLASSES) - 12 LỚP
+======================================================================
+
+Core Entities:
+  ✅ Student
+  ✅ Teacher
+  ✅ Class
+  ✅ Grade
+
+Content Entities:
+  ✅ Topic
+  ✅ Lesson
+  ✅ Question
+  ✅ Skill
+  ✅ Resource
+
+Assessment Entities:
+  ✅ Test
+  ✅ TestResult
+  ✅ Mastery
+
+Tất cả các lớp:
+  • Class
+  • Grade
+  • Lesson
+  • Mastery
+  • Question
+  • Resource
+  • Skill
+  • Student
+  • Teacher
+  • Test
+  • TestResult
+  • Topic
+
+
+======================================================================
+📋 PHẦN 2: CÁC QUAN HỆ (RELATIONSHIPS)
+======================================================================
+
+Quan hệ cấu trúc (Structural):
+  ✅ belongsToClass
+  ✅ belongsToGrade
+  ✅ teaches
+  ✅ belongsToTopic
+  ✅ forGrade
+  ✅ belongsToLesson
+
+Quan hệ kỹ năng (Skills):
+  ✅ requiresSkill
+  ✅ coversSkill
+  ✅ prerequisiteOf
+
+Quan hệ đánh giá (Assessment):
+  ✅ takeTest
+  ✅ hasQuestion
+  ✅ hasResult
+  ✅ forTest
+  ✅ hasMastery
+  ✅ forSkill
+
+Quan hệ ML/Recommendation (Tùy chọn):
+  ✅ weakInTopic
+  ✅ recommendedFor
+  ✅ recommendedResourceFor
+
+Tất cả các quan hệ:
+  • belongsToClass: Student → Class
+  • belongsToClass: Student → Class
+  • belongsToClass: Student → Class
+  • belongsToGrade: Class → Grade
+  • belongsToGrade: Class → Grade
+  • belongsToGrade: Class → Grade
+  • belongsToLesson: Question → Lesson
+  • belongsToLesson: Question → Lesson
+  • belongsToLesson: Question → Lesson
+  • belongsToTopic: Lesson → Topic
+  • belongsToTopic: Lesson → Topic
+  • belongsToTopic: Lesson → Topic
+  • coversSkill: Resource → Skill
+  • coversSkill: Resource → Skill
+  • coversSkill: Resource → Skill
+  • forGrade: Topic → Grade
+  • forGrade: Topic → Grade
+  • forGrade: Topic → Grade
+  • forSkill: Mastery → Skill
+  • forSkill: Mastery → Skill
+  • forSkill: Mastery → Skill
+  • forTest: TestResult → Test
+  • forTest: TestResult → Test
+  • forTest: TestResult → Test
+  • hasMastery: Student → Mastery
+  • hasMastery: Student → Mastery
+  • hasMastery: Student → Mastery
+  • hasQuestion: Test → Question
+  • hasQuestion: Test → Question
+  • hasQuestion: Test → Question
+  • hasResult: Student → TestResult
+  • hasResult: Student → TestResult
+  • hasResult: Student → TestResult
+  • prerequisiteOf: Skill → Skill
+  • prerequisiteOf: Skill → Skill
+  • prerequisiteOf: Skill → Skill
+  • recommendedFor: Lesson → Student
+  • recommendedFor: Lesson → Student
+  • recommendedFor: Lesson → Student
+  • recommendedResourceFor: Resource → Student
+  • recommendedResourceFor: Resource → Student
+  • recommendedResourceFor: Resource → Student
+  • recommendedResourceFor: Resource → Student
+  • recommendedResourceFor: Resource → Student
+  • requiresSkill: Question → Skill
+  • requiresSkill: Question → Skill
+  • requiresSkill: Question → Skill
+  • takeTest: Student → Test
+  • takeTest: Student → Test
+  • takeTest: Student → Test
+  • teaches: Teacher → Class
+  • teaches: Teacher → Class
+  • teaches: Teacher → Class
+  • weakInTopic: Student → Topic
+  • weakInTopic: Student → Topic
+  • weakInTopic: Student → Topic
+
+
+======================================================================
+📋 PHẦN 3: CÁC THUỘC TÍNH DỮ LIỆU (DATA PROPERTIES)
+======================================================================
+
+Các thuộc tính quan trọng:
+  ✅ studentId
+  ✅ fullName
+  ✅ teacherId
+  ✅ className
+  ✅ grade
+  ✅ topicId
+  ✅ lessonId
+  ✅ q_id
+  ✅ skillId
+  ✅ name
+  ✅ testId
+  ✅ testName
+  ✅ score
+  ✅ lastUpdated
+
+Tất cả các thuộc tính:
+  • bloomLevel
+  • className
+  • correctOption
+  • difficulty
+  • domain
+  • duration
+  • expertise
+  • fullName
+  • grade
+  • label
+  • lastUpdated
+  • lessonId
+  • mediaType
+  • name
+  • q_id
+  • questionText
+  • resId
+  • score
+  • skillId
+  • studentId
+  • teacherId
+  • testDate
+  • testId
+  • testName
+  • title
+  • topicId
+  • url
+
+
+======================================================================
+📊 TÓM TẮT
+======================================================================
+
+Tổng số lớp: 12
+Tổng số quan hệ: 18
+Tổng số thuộc tính: 27
+
+✅ Diagram cần có ít nhất:
+  • 12 lớp
+  • 18 quan hệ chính
+  • Các thuộc tính quan trọng (ID, tên)

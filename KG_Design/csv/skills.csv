@@ -1,0 +1,91 @@
+﻿skillId,name,domain,bloomLevel,grade,description
+6-A1-NB,Thông tin – Thu nhận và xử lí thông tin,Chủ đề A. Máy tính và cộng đồng,Nhận biết,6,Biết thông tin là gì; Biết được thế nào là thu nhận và xử lí thông tin.
+6-A1-TH,Thông tin – Thu nhận và xử lí thông tin,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,6,Phân biệt được thông tin với vật mang tin; Nêu được ví dụ về hoạt động thu nhận và xử lí thông tin.
+6-A2-NB,Lưu trữ và trao đổi thông tin,Chủ đề A. Máy tính và cộng đồng,Nhận biết,6,Biết thế nào là lưu trữ và trao đổi thông tin; Biết được dữ liệu là gì.
+6-A2-TH,Lưu trữ và trao đổi thông tin,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,6,Nêu được hoạt động lưu trữ thông tin; Hiểu được tầm quan trọng của thông tin và trao đổi thông tin trong cuộc sống hàng ngày.
+6-A3-NB,Máy tính trong hoạt động thông tin,Chủ đề A. Máy tính và cộng đồng,Nhận biết,6,Biết được một vài thiết bị số thông dụng; Biết được máy tính quan trọng như thế nào trong cuộc sống; Biết được hạn chế của máy tính.
+6-A3-TH,Máy tính trong hoạt động thông tin,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,6,"Giải thích được máy tính và thiết bị số là công cụ hiệu quả để thu nhận, lưu trữ, xử lí và truyền thông tin."
+6-A4-NB,"Biểu diễn văn bản, hình ảnh, âm thanh trong máy tính",Chủ đề A. Máy tính và cộng đồng,Nhận biết,6,"Biết được bit là gì; Biết được thế nào là số hóa dữ liệu; Biết được mỗi kí tự, mỗi văn bản được biểu diễn như thế nào trong máy tính."
+6-A4-TH,"Biểu diễn văn bản, hình ảnh, âm thanh trong máy tính",Chủ đề A. Máy tính và cộng đồng,Thông hiểu,6,Hiểu cách chuyển từ hình ảnh về dãy bit 0 và 1.
+6-A5-NB,Dữ liệu trong máy tính,Chủ đề A. Máy tính và cộng đồng,Nhận biết,6,Biết máy tính ddingf dãy bit trong tính toán
+6-A5-TH,Dữ liệu trong máy tính,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,6,Nêu được các bước xử lí thông tin trong máy tính
+6-A5-VD,Dữ liệu trong máy tính,Chủ đề A. Máy tính và cộng đồng,Vận dụng,6,"Xác định được khả năng lưu trữ của các thiết bị nhớ thông dụng (đĩa quang, đĩa cứng, USB, thẻ nhớ...); Quy đổi được đơn vị gần đúng các đơn vị đo lượng dữ liệu."
+6-B1-NB,Khái niệm và lợi ích của mạng máy tính,Chủ đề B. Mạng máy tính và internet,Nhận biết,6,Nêu được khái niệm và lợi ích của mạng máy tính; Biết LAN là mạng cục bộ; Biết được 3 thành phần của mạng máy tính; Nêu tên một vài thiết bị mạng cơ bản.
+6-B1-TH,Khái niệm và lợi ích của mạng máy tính,Chủ đề B. Mạng máy tính và internet,Thông hiểu,6,Hiểu về mạng LAN; Hiểu được những lợi ích của máy tính mang lại.
+6-B2-NB,Mạng có dây và mạng không dây,Chủ đề B. Mạng máy tính và internet,Nhận biết,6,"Biết được thiết bị và lợi ích của mạng không dây; Nhận diện được môi trường truyền (có dây, không dây) của các thiết bị."
+6-B2-TH,Mạng có dây và mạng không dây,Chủ đề B. Mạng máy tính và internet,Thông hiểu,6,So sánh được thiết bị mạng có dây và không dây; Hiểu trường hợp nào mạng không dây tiện dụng hơn; Hiểu mô hình mạng LAN trong gia đình.
+6-C1-NB,Thông tin trên web,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,6,"Trình bày sơ lược khái niệm website, địa chỉ website; Nêu được thông tin chính trên trang web; Biết nội dung trang web trình bày dạng siêu văn bản."
+6-C1-TH,Thông tin trên web,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Thông hiểu,6,Hiểu được công dụng của các siêu liên kết trên trang web.
+6-C2-NB,Truy cập thông tin trên Internet,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,6,"Trình bày sơ lược khái niệm WWW, trình duyệt web; Kể tên các trình duyệt web phổ biến."
+6-C2-TH,Truy cập thông tin trên Internet,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Thông hiểu,6,Sử dụng được trình duyệt web để truy cập các trang web (Lưu ý: Mức độ này đánh giá qua câu hỏi tình huống hoặc thao tác hiểu biết).
+6-C3-NB,Giới thiệu máy tìm kiếm,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,6,Biết được máy tìm kiếm là gì; Nêu công dụng của máy tìm kiếm; Nêu tên các máy tìm kiếm thông dụng.
+6-C3-VD,Thực hành tìm kiếm thông tin trên Internet,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Vận dụng,6,"Tìm kiếm được thông tin trên một số trang web thông dụng (từ điển, thời tiết...); Thực hành tìm kiếm thông tin phục vụ học tập và giải trí."
+6-C4-NB,Giới thiệu thư điện tử,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,6,Biết các dịch vụ email miễn phí; Biết cấu trúc thư điện tử; Biết các bước soạn thư trong Gmail.
+6-C4-VD,Giới thiệu thư điện tử,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Vận dụng,6,"Thực hiện được thao tác cơ bản: tạo tài khoản, đăng nhập, soạn và gửi thư, nhận và trả lời thư, đăng xuất."
+7-A1-NB,Thiết bị vào - ra cơ bản cho máy tính cá nhân,Chủ đề A. Máy tính và cộng đồng,Nhận biết,7,"Biết và nhận ra được các thiết bị vào ra (Chuột, bàn phím, loa, máy quét...); Biết được chức năng của một số thiết bị vào ra."
+7-A1-TH,Thiết bị vào - ra cơ bản cho máy tính cá nhân,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,7,Phân biệt được thiết bị vào và thiết bị ra; Giải thích vai trò thiết bị; Nêu ví dụ minh họa.
+7-A3-TH,Thực hành với các thiết bị vào - ra,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,7,Nêu được ví dụ cụ thể về những thao tác không đúng cách gây lỗi cho thiết bị.
+7-A4-NB,Một số chức năng của hệ điều hành,Chủ đề A. Máy tính và cộng đồng,Nhận biết,7,"Biết nguyên tắc làm việc của HĐH; Nêu tên phần mềm ứng dụng; Nêu biện pháp bảo vệ máy tính (mật khẩu, sao lưu...)."
+7-A4-TH,Một số chức năng của hệ điều hành,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,7,Giải thích được chức năng điều khiển của HĐH; Phân biệt được HĐH với phần mềm ứng dụng.
+7-A5-NB,Thực hành khám phá trình quản lí hệ thống tệp,Chủ đề A. Máy tính và cộng đồng,Nhận biết,7,Biết được tệp chương trình cũng là dữ liệu; Nêu được tên một số phần mềm ứng dụng đã sử dụng.
+7-A5-TH,Thực hành khám phá trình quản lí hệ thống tệp,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,7,Phân biệt được loại tệp thông qua phần mở rộng.
+7-A6-TH,Thực hành thao tác với tệp và thư mục,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,7,Sử dụng được một số nút lệnh thường dùng của trình quản lí File Explorer.
+7-A6-VD,Thực hành thao tác với tệp và thư mục,Chủ đề A. Máy tính và cộng đồng,Vận dụng,7,Thao tác thành thạo với tệp và thư mục để giải quyết các nhiệm vụ học tập và cuộc sống.
+7-C1-NB,Giới thiệu mạng xã hội,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,7,Biết một số chức năng cơ bản của MXH; Biết tên các kênh trao đổi thông tin thông dụng trên Internet.
+7-C2-NB,Thực hành sử dụng mạng xã hội,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,7,Nhận biết được hành vi sai trái trên mạng xã hội.
+7-C2-VD,Thực hành sử dụng mạng xã hội,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Vận dụng,7,Nêu ví dụ cụ thể về lợi ích và tác hại của việc nghiện mạng xã hội.
+7-C3-NB,Trao đổi thông tin trên mạng xã hội,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,7,Biết được lợi ích của mạng xã hội.
+7-C3-TH,Trao đổi thông tin trên mạng xã hội,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Thông hiểu,7,Nêu được ví dụ cụ thể về hậu quả của việc sử dụng thông tin vào mục đích sai trái.
+7-D1-NB,Ứng xử có văn hóa khi giao tiếp qua mạng,"Chủ đề D. Đạo đức, pháp luật và văn hóa trong môi trường số",Nhận biết,7,Nêu cách ứng xử hợp lý khi gặp thông tin xấu; Nêu ví dụ về truy cập thông tin không hợp lệ.
+7-D2-NB,Ứng xử tránh rủi ro trên mạng,"Chủ đề D. Đạo đức, pháp luật và văn hóa trong môi trường số",Nhận biết,7,Biết tác hại của bệnh nghiện Internet; Biết nhờ người lớn giúp đỡ khi cần thiết.
+7-D2-TH,Ứng xử tránh rủi ro trên mạng,"Chủ đề D. Đạo đức, pháp luật và văn hóa trong môi trường số",Thông hiểu,7,Nêu cách ứng xử hợp lý khi gặp thông tin xấu; Nêu ví dụ truy cập không hợp lệ (theo nội dung nguồn).
+7-E1-NB,Làm quen với bảng tính điện tử,Chủ đề E. Ứng dụng tin học,Nhận biết,7,(Nội dung gốc có thể nhầm lẫn): Nêu cách ứng xử hợp lý khi gặp thông tin xấu; Ví dụ truy cập không hợp lệ.
+7-E1-TH,Làm quen với bảng tính điện tử,Chủ đề E. Ứng dụng tin học,Thông hiểu,7,"Biết được hộp tên là gì, thanh công thức là gì; Biết được khối ô là gì."
+7-E2-NB,Làm quen với trang tính,Chủ đề E. Ứng dụng tin học,Nhận biết,7,"Biết được sổ tính, trang tính là gì."
+7-E2-VD,Làm quen với trang tính,Chủ đề E. Ứng dụng tin học,Vận dụng,7,Thực hiện thao tác đơn giản với trang tính; Gõ nhập được dữ liệu vào đúng ô đích.
+8-A1-NB,Vài nét lịch sử phát triển máy tính,Chủ đề A. Máy tính và cộng đồng,Nhận biết,8,Biết được sự ra đời của những chiếc máy tính đầu tiên và người đặt nền móng cho nó; Biết được các công nghệ sử dụng trong từng thế hệ.
+8-A1-TH,Vài nét lịch sử phát triển máy tính,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,8,Hiểu được các máy tính ở cùng một giai đoạn; Hiểu được sự phát triển của máy tính qua các thế hệ.
+8-A2-NB,Vài nét lịch sử phát triển máy tính (tiếp theo),Chủ đề A. Máy tính và cộng đồng,Nhận biết,8,"Biết được cách thức giao tiếp giữa con người và máy tính, hệ điều hành và phần cứng trong từng thế hệ."
+8-A2-TH,Vài nét lịch sử phát triển máy tính (tiếp theo),Chủ đề A. Máy tính và cộng đồng,Thông hiểu,8,Hiểu được các tiện ích mà máy tính đem lại cho con người trong các lĩnh vực.
+8-C1-NB,Dữ liệu số trong thời đại thông tin,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,8,Biết được đặc điểm của thông tin số; Biết phần mở rộng của các tập tin khác nhau.
+8-C1-TH,Dữ liệu số trong thời đại thông tin,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Thông hiểu,8,Giải thích được vì sao thông tin số chiếm tỷ lệ rất lớn.
+8-C1-VD,Dữ liệu số trong thời đại thông tin,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Vận dụng,8,"Hiểu được đặc điểm của thông tin số, từ đó vận dụng vào trong thực tiễn nâng cao chất lượng cuộc sống."
+8-C2-NB,Khai thác thông tin số trong các hoạt động KT-XH,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,8,Biết thông tin nào là tin cậy và không tin cậy.
+8-C2-TH,Khai thác thông tin số trong các hoạt động KT-XH,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Thông hiểu,8,Hiểu thông tin có giá trị về mặt pháp lý.
+8-C2-VD,Khai thác thông tin số trong các hoạt động KT-XH,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Vận dụng,8,"Tìm kiếm và cho ví dụ về thông tin hợp lý, đáng tin cậy."
+8-C3-NB,Thông tin với giải quyết vấn đề,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,8,Biết được các loại thông tin khác nhau khi tìm kiếm.
+8-C3-TH,Thông tin với giải quyết vấn đề,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Thông hiểu,8,Đánh giá được lợi ích của thông tin trong giải quyết vấn đề.
+8-D1-NB,Sử dụng công nghệ kĩ thuật số có đạo đức và văn hóa,"Chủ đề D. Đạo đức, pháp luật và văn hóa trong môi trường số",Nhận biết,8,"Biết một số biểu hiện vi phạm đạo đức và pháp luật, biểu hiện thiếu văn hoá khi sử dụng công nghệ kĩ thuật số."
+8-D1-TH,Sử dụng công nghệ kĩ thuật số có đạo đức và văn hóa,"Chủ đề D. Đạo đức, pháp luật và văn hóa trong môi trường số",Thông hiểu,8,"Giải thích một số biểu hiện vi phạm đạo đức và pháp luật, biểu hiện thiếu văn hoá khi sử dụng công nghệ kĩ thuật số."
+8-D1-VD,Sử dụng công nghệ kĩ thuật số có đạo đức và văn hóa,"Chủ đề D. Đạo đức, pháp luật và văn hóa trong môi trường số",Vận dụng,8,"Đảm bảo được các sản phẩm số do em tạo ra thể hiện được đạo đức, tính văn hoá, không vi phạm pháp luật."
+8-F1-NB,Thể hiện cấu trúc tuần tự trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Nhận biết,8,Biết được cấu trúc tuần tự trong thuật toán; Biết thể hiện cấu trúc tuần tự trong chương trình.
+8-F1-TH,Thể hiện cấu trúc tuần tự trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Thông hiểu,8,Hiểu được cấu trúc thuật toán tuần tự; Hiểu được mỗi chương trình là dãy các lệnh điều khiển máy tính thực hiện một thuật toán.
+8-F2-NB,Sử dụng biến trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Nhận biết,8,Biết được các kiểu dữ liệu trong Scratch; Biết sử dụng biến và hằng.
+8-F2-TH,Sử dụng biến trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Thông hiểu,8,Giải thích được vì sao sử dụng kiểu dữ liệu khác nhau trong Scratch; Nêu được các kiểu dữ liệu trong Scratch.
+8-F3-NB,Sử dụng biểu thức trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Nhận biết,8,Biết được các phép toán trong biểu thức; Biết biểu diễn các biểu thức toán học trong lập trình Scratch.
+8-F3-TH,Sử dụng biểu thức trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Thông hiểu,8,Giải thích được các biểu thức có số học trong Scratch.
+8-F3-VD,Sử dụng biểu thức trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Vận dụng,8,Tạo được câu lệnh Scratch có chứa biểu thức số học đơn giản.
+8-F4-NB,Thể hiện cấu trúc rẽ nhánh trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Nhận biết,8,Biết được có 2 dạng cấu trúc rẽ nhánh (đủ và khuyết); Biết được cấu trúc rẽ nhánh cần được thể hiện bằng biểu thức logic.
+8-F4-TH,Thể hiện cấu trúc rẽ nhánh trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Thông hiểu,8,Thể hiện được cấu trúc rẽ nhánh của thuật toán bằng đoạn chương trình Scratch.
+8-F4-VD,Thể hiện cấu trúc rẽ nhánh trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Vận dụng,8,Tạo một chương trình Scratch đơn giản có cấu trúc rẽ nhánh.
+8-F5-NB,Thể hiện cấu trúc lặp trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Nhận biết,8,Biết sử dụng các khối lệnh để thể thể cấu trúc lặp; Biết điều kiện dừng lặp là một biểu thức logic.
+8-F5-TH,Thể hiện cấu trúc lặp trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Thông hiểu,8,Thể hiện được cấu trúc lặp của thuật toán bằng đoạn chương trình Scratch.
+8-F5-VD,Thể hiện cấu trúc lặp trong chương trình,Chủ đề F. Giải quyết vấn đề với sự trợ giúp của máy tính,Vận dụng,8,Tạo một chương trình Scratch đơn giản có cấu trúc lặp.
+9-A1-NB,Vai trò của máy tính trong đời sống,Chủ đề A. Máy tính và cộng đồng,Nhận biết,9,"Nhận biết được các thiết bị có gắn bộ xử lí thông tin có mặt ở khắp nơi; Nhận biết chức năng, đặc điểm của bộ xử lí thông tin."
+9-A1-TH,Vai trò của máy tính trong đời sống,Chủ đề A. Máy tính và cộng đồng,Thông hiểu,9,Nêu được khả năng của máy tính và ứng dụng thực tế; Giải thích được tác động của CNTT lên giáo dục và xã hội.
+9-A1-VD,Vai trò của máy tính trong đời sống,Chủ đề A. Máy tính và cộng đồng,Vận dụng,9,"Chỉ ra được ứng dụng thực tế của máy tính; Nêu ví dụ CNTT mang lại sự thay đổi cho gia đình, nhà trường và bản thân."
+9-C1-NB,Chất lượng thông tin trong giải quyết vấn đề,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Nhận biết,9,Biết được bốn tiêu chí đánh giá chất lượng thông tin và tiêu chí quan trọng nhất; Nhận biết khái niệm từng tiêu chí.
+9-C1-TH,Chất lượng thông tin trong giải quyết vấn đề,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Thông hiểu,9,"Giải thích sự cần thiết quan tâm đến chất lượng thông tin; Giải thích tính mới, chính xác, đầy đủ, sử dụng được của thông tin."
+9-C1-VD,Chất lượng thông tin trong giải quyết vấn đề,"Chủ đề C. Tổ chức lưu trữ, tìm kiếm và trao đổi thông tin",Vận dụng,9,Áp dụng các tiêu chí đánh giá thông tin qua các tình huống cụ thể.
+9-D1-NB,"Tác động của công nghệ số đối với con người, xã hội","Chủ đề D. Đạo đức, pháp luật và văn hóa trong môi trường số",Nhận biết,9,"Nhận biết hành vi vi phạm pháp luật, trái đạo đức, thiếu văn hoá trong môi trường số qua ví dụ."
+9-D1-TH,"Tác động của công nghệ số đối với con người, xã hội","Chủ đề D. Đạo đức, pháp luật và văn hóa trong môi trường số",Thông hiểu,9,"Hiểu biết cơ bản về pháp luật, đạo đức, văn hoá liên quan đến tài nguyên thông tin; Nêu nội dung luật CNTT, nghị định Internet."
+9-D1-VD,"Tác động của công nghệ số đối với con người, xã hội","Chủ đề D. Đạo đức, pháp luật và văn hóa trong môi trường số",Vận dụng,9,"Nêu hành vi vi phạm pháp luật, trái đạo đức; Trình bày tác động tiêu cực của công nghệ số với đời sống và xã hội."
+9-E1-NB,Phần mềm mô phỏng,Chủ đề E. Ứng dụng tin học,Nhận biết,9,Biết một số phần mềm mô phỏng và lợi ích của chúng; Nhận biết mô phỏng giúp khám phá tri thức và giải quyết vấn đề.
+9-E1-TH,Phần mềm mô phỏng,Chủ đề E. Ứng dụng tin học,Thông hiểu,9,Nêu được ví dụ phần mềm mô phỏng; Nêu kiến thức thu nhận từ việc khai thác phần mềm mô phỏng.
+9-E1-VD,Phần mềm mô phỏng,Chủ đề E. Ứng dụng tin học,Vận dụng,9,Chọn thao tác tương tác với giao diện trong phần mềm mô phỏng.
+9-E2-NB,"Trình bày, trao đổi thông tin",Chủ đề E. Ứng dụng tin học,Nhận biết,9,"Biết sử dụng chữ, hình ảnh, biểu đồ, video hợp lí; Biết khả năng đính kèm dữ liệu, trang trí vào sơ đồ tư duy."
+9-E2-TH,"Trình bày, trao đổi thông tin",Chủ đề E. Ứng dụng tin học,Thông hiểu,9,"Sử dụng hợp lí cỡ chữ, màu sắc, hình ảnh, biểu đồ, video một cách hợp lí."
+9-E2-VD,"Trình bày, trao đổi thông tin",Chủ đề E. Ứng dụng tin học,Vận dụng,9,Sử dụng được bài trình chiếu và sơ đồ tư duy trong trao đổi thông tin và hợp tác.
+9-E3-NB,Tổ chức dữ liệu cho dự án quản lí tài chính gia đình,Chủ đề E. Ứng dụng tin học,Nhận biết,9,"Biết được mục tiêu, kế hoạch thực hiện dự án quản lí tài chính gia đình."
+9-E3-TH,Tổ chức dữ liệu cho dự án quản lí tài chính gia đình,Chủ đề E. Ứng dụng tin học,Thông hiểu,9,Nêu được cách tổ chức dữ liệu và lợi ích khi sử dụng công cụ Data Validation.
+9-E3-VD,Tổ chức dữ liệu cho dự án quản lí tài chính gia đình,Chủ đề E. Ứng dụng tin học,Vận dụng,9,Sử dụng được công cụ Data Validation để hỗ trợ nhập dữ liệu.

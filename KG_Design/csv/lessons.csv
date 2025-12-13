@@ -1,0 +1,117 @@
+﻿grade,topics,lesson_id,lesson_name
+6,A,A1,Thông tin – Thu nhận và xử lí thông tin
+6,A,A2,Lưu trữ và trao đổi thông tin
+6,A,A3,Máy tính trong hoạt động thông tin
+6,A,A4,"Biểu diễn văn bản, hình ảnh, âm thanh trong máy tính"
+6,A,A5,Dữ liệu trong máy tính
+6,B,B1,Khái niệm và lợi ích của mạng máy tính
+6,B,B2,Các thành phần của mạng máy tính
+6,B,B3,Mạng có dây và mạng không dây
+6,B,B4,Thực hành về mạng máy tính
+6,C,C1,Thông tin trên web
+6,C,C2,Truy cập thông tin trên Internet
+6,C,C3,Giới thiệu máy tìm kiếm
+6,C,C4,Thực hành tìm kiếm thông tin trên Internet
+6,C,C5,Giới thiệu thư điện tử
+6,C,C6,Thực hành sử dụng thư điện tử
+6,D,D1,Mất trái của Internet
+6,D,D2,Sự an toàn và hợp pháp khi sử dụng thông tin
+6,D,D3,Thực hành phòng vệ trước ảnh hưởng xấu từ Internet
+6,E,E1,Tìm kiếm và thay thế trong soạn thảo văn bản
+6,E,E2,"Trình bày trang, định dạng và in văn bản"
+6,E,E3,"Thực hành tìm kiếm, thay thế và định dạng văn bản"
+6,E,E4,Trình bày thông tin ở dạng bảng
+6,E,E5,Thực hành tổng hợp về soạn thảo văn bản
+6,E,E6,Sơ đồ tư duy
+6,E,E7,Thực hành khám phá phần mềm sơ đồ tư duy
+6,E,E8,Dự án nhỏ: Lợi ích của sơ đồ tư duy
+6,F,F1,Khái niệm thuật toán
+6,F,F2,Mô tả thuật toán. Cấu trúc tuần tự trong thuật toán
+6,F,F3,Cấu trúc rẽ nhánh trong thuật toán
+6,F,F4,Cấu trúc lặp trong thuật toán
+6,F,F5,Thực hành về mô tả thuật toán
+7,A,A1,Thiết bị vào – ra cơ bản cho máy tính cá nhân
+7,A,A2,Các thiết bị vào – ra
+7,A,A3,Thực hành với các thiết bị vào – ra
+7,A,A4,Một số chức năng của hệ điều hành
+7,A,A5,Thực hành khám phá trình quản lí hệ thống tệp
+7,A,A6,Thực hành thao tác với tệp và thư mục
+7,C,C1,Giới thiệu mạng xã hội
+7,C,C2,Thực hành sử dụng mạng xã hội
+7,C,C3,Trao đổi thông tin trên mạng xã hội
+7,D,D1,Ứng xử với văn hoá khi giao tiếp qua mạng
+7,D,D2,Ứng xử tránh rủi ro trên mạng
+7,E,E1,Làm quen với bảng tính điện tử
+7,E,E2,Làm quen với trang tính
+7,E,E3,Làm quen với trang tính (tiếp theo)
+7,E,E4,Định dạng hiển thị dữ liệu số
+7,E,E5,Định dạng số tiền và ngày tháng
+7,E,E6,Thực hành lập sổ theo dõi thu chi cá nhân
+7,E,E7,Công thức tính toán dùng địa chỉ các ô dữ liệu
+7,E,E8,Sử dụng một số hàm số có sẵn
+7,E,E9,Định dạng trang tính và in
+7,E,E10,Thực hành tổng hợp
+7,E,E11,Luyện tập sử dụng phần mềm bảng tính
+7,E,E12,Tạo bài trình chiếu
+7,E,E13,Thực hành định dạng trang chiếu
+7,E,E14,Thêm hiệu ứng cho trang chiếu
+7,E,E15,Thực hành tổng hợp tạo bài trình chiếu
+7,F,F1,Tìm kiếm tuần tự
+7,F,F2,Tìm kiếm nhị phân
+7,F,F3,Sắp xếp chọn
+7,F,F4,Sắp xếp nổi bọt
+7,F,F5,"Thực hành mô phỏng các thuật toán tìm kiếm, sắp xếp"
+8,A,A1,Vài nét lịch sử phát triển máy tính
+8,A,A2,Vài nét lịch sử phát triển máy tính (tiếp theo)
+8,C,C1,Dữ liệu trong thời đại thông tin
+8,C,C2,Khai thác thông tin trong các hoạt động kinh tế xã hội
+8,C,C3,Bài tập nhóm: Thông tin với giải quyết vấn đề
+8,D,D1,Sử dụng công nghệ kĩ thuật số có đạo đức và văn hoá
+8,E,E1,Lọc dữ liệu
+8,E,E2,Sắp xếp dữ liệu
+8,E,E3,Biểu đồ trong phần mềm bảng tính
+8,E,E4,Thực hành tạo biểu đồ
+8,E,E5,Các kiểu địa chỉ trong Excel
+8,E,E6,Thực hành tổng hợp
+8,E,E7,Xử lí đồ hoạ trong văn bản
+8,E,E8,Thực hành xử lí đồ hoạ trong văn bản
+8,E,E9,Danh sách liệt kê và tiêu đề trang
+8,E,E10,Thực hành tạo danh sách liệt kê và tiêu đề trang
+8,E,E11,Thực hành tổng hợp
+8,E,E12,Sử dụng các bản mẫu trong tạo bài trình chiếu
+8,E,E13,Thực hành sử dụng bản mẫu
+8,E,E14,Kết nối đa phương tiện và hoàn thiện trang chiếu
+8,E,E15,Thực hành tổng hợp
+8,E,F1,Thể hiện cấu trúc tuần tự trong chương trình
+8,E,F2,Sử dụng biến trong chương trình
+8,E,F3,Sử dụng biểu thức trong chương trình
+8,E,F4,Thể hiện cấu trúc rẽ nhánh trong chương trình
+8,E,F5,Thể hiện cấu trúc lặp trong chương trình
+8,E,F6,Thực hành tìm và sửa lỗi
+8,E,F7,Thực hành tổng hợp
+8,G,G1,Tin học và ứng dụng
+8,G,G2,Tin học và các ngành nghề
+9,A,A1,Bộ xử lí thông tin ở quanh ta
+9,A,A2,Khả năng và ứng dụng thực tế của máy tính
+9,A,C1,Một số đặc điểm quan trọng của thông tin trong giải quyết vấn đề
+9,A,C2,"Chất lượng thông tin khi tìm kiếm, tiếp nhận và trao đổi thông tin"
+9,A,D1,Một số tác động tiêu cực của công nghệ kĩ thuật số
+9,A,D2,"Khía cạnh pháp lí, đạo đức, văn hoá của việc trao đổi thông tin qua mạng"
+9,E,E1,Phần mềm mô phỏng và ứng dụng
+9,E,E2,Thực hành sử dụng phần mềm mô phỏng
+9,E,E3,Sử dụng bài trình chiếu trong trao đổi thông tin
+9,E,E4,Sử dụng sơ đồ tư duy trình bày thông tin trong trao đổi và hợp tác
+9,E,E5,Thực hành trình bày thông tin đa phương tiện trong trao đổi và hợp tác
+9,E,E6,Xác thực dữ liệu nhập vào bảng tính
+9,E,E7,Hàm điều kiện IF
+9,E,E8,Hàm điều kiện IF (tiếp theo)
+9,E,E9,Một số hàm thống kê có điều kiện
+9,E,E10,Thực hành tổng hợp
+9,E,E11,Dự án học tập
+9,F,F1,Các bước giải bài toán bằng máy tính
+9,F,F2,Thực hành xác định bài toán và tìm thuật toán
+9,F,F3,Thực hành tạo và chạy thử chương trình
+9,F,F4,Dùng máy tính để giải quyết bài toán
+9,G,G1,Nhóm nghề Phân tích và phát triển phần mềm và các ứng dụng
+9,G,G2,Nhóm nghề Đa phương tiện và nhóm nghề Vận hành hệ thống thông tin
+9,G,G3,Thực hành tìm hiểu thông tin về các nhóm nghề

@@ -1,0 +1,161 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix data: <http://education.vn/data/> .
+
+data:lesson_6_A1 a edu:Lesson ;
+    edu:lessonId "A1" ;
+    edu:label "Bài A1: Thông tin và xử lí" ;
+    edu:belongsToTopic data:topic_6_A .
+
+data:lesson_6_A2 a edu:Lesson ;
+    edu:lessonId "A2" ;
+    edu:label "Bài A2: Lưu trữ và trao đổi" ;
+    edu:belongsToTopic data:topic_6_A .
+
+data:lesson_6_A3 a edu:Lesson ;
+    edu:lessonId "A3" ;
+    edu:label "Bài A3: Máy tính trong hoạt động thông tin" ;
+    edu:belongsToTopic data:topic_6_A .
+
+data:lesson_6_A4 a edu:Lesson ;
+    edu:lessonId "A4" ;
+    edu:label "Bài A4: Máy tính và phần mềm" ;
+    edu:belongsToTopic data:topic_6_A .
+
+data:lesson_6_A5 a edu:Lesson ;
+    edu:lessonId "A5" ;
+    edu:label "Bài A5: Hệ điều hành" ;
+    edu:belongsToTopic data:topic_6_A .
+
+data:lesson_6_B1 a edu:Lesson ;
+    edu:lessonId "B1" ;
+    edu:label "Bài B1: Khái niệm và lợi ích mạng máy tính" ;
+    edu:belongsToTopic data:topic_6_B .
+
+data:lesson_6_B2 a edu:Lesson ;
+    edu:lessonId "B2" ;
+    edu:label "Bài B2: Các thành phần mạng máy tính" ;
+    edu:belongsToTopic data:topic_6_B .
+
+data:lesson_6_B3 a edu:Lesson ;
+    edu:lessonId "B3" ;
+    edu:label "Bài B3: Kết nối mạng" ;
+    edu:belongsToTopic data:topic_6_B .
+
+data:lesson_6_B4 a edu:Lesson ;
+    edu:lessonId "B4" ;
+    edu:label "Bài B4: An toàn mạng" ;
+    edu:belongsToTopic data:topic_6_B .
+
+data:lesson_6_C1 a edu:Lesson ;
+    edu:lessonId "C1" ;
+    edu:label "Bài C1: Sơ đồ tư duy" ;
+    edu:belongsToTopic data:topic_6_C .
+
+data:lesson_6_C2 a edu:Lesson ;
+    edu:lessonId "C2" ;
+    edu:label "Bài C2: Tạo sơ đồ tư duy" ;
+    edu:belongsToTopic data:topic_6_C .
+
+data:lesson_6_C3 a edu:Lesson ;
+    edu:lessonId "C3" ;
+    edu:label "Bài C3: Chỉnh sửa sơ đồ tư duy" ;
+    edu:belongsToTopic data:topic_6_C .
+
+data:lesson_6_C4 a edu:Lesson ;
+    edu:lessonId "C4" ;
+    edu:label "Bài C4: Trình bày sơ đồ tư duy" ;
+    edu:belongsToTopic data:topic_6_C .
+
+data:lesson_6_C5 a edu:Lesson ;
+    edu:lessonId "C5" ;
+    edu:label "Bài C5: Tổ chức lưu trữ thông tin" ;
+    edu:belongsToTopic data:topic_6_C .
+
+data:lesson_6_C6 a edu:Lesson ;
+    edu:lessonId "C6" ;
+    edu:label "Bài C6: Tìm kiếm thông tin" ;
+    edu:belongsToTopic data:topic_6_C .
+
+data:lesson_6_D1 a edu:Lesson ;
+    edu:lessonId "D1" ;
+    edu:label "Bài D1: Văn bản số" ;
+    edu:belongsToTopic data:topic_6_D .
+
+data:lesson_6_D2 a edu:Lesson ;
+    edu:lessonId "D2" ;
+    edu:label "Bài D2: Soạn thảo văn bản" ;
+    edu:belongsToTopic data:topic_6_D .
+
+data:lesson_6_D3 a edu:Lesson ;
+    edu:lessonId "D3" ;
+    edu:label "Bài D3: Định dạng văn bản" ;
+    edu:belongsToTopic data:topic_6_D .
+
+data:lesson_6_E1 a edu:Lesson ;
+    edu:lessonId "E1" ;
+    edu:label "Bài E1: Bảng tính" ;
+    edu:belongsToTopic data:topic_6_E .
+
+data:lesson_6_E2 a edu:Lesson ;
+    edu:lessonId "E2" ;
+    edu:label "Bài E2: Nhập dữ liệu vào bảng tính" ;
+    edu:belongsToTopic data:topic_6_E .
+
+data:lesson_6_E3 a edu:Lesson ;
+    edu:lessonId "E3" ;
+    edu:label "Bài E3: Tính toán trong bảng tính" ;
+    edu:belongsToTopic data:topic_6_E .
+
+data:lesson_6_E4 a edu:Lesson ;
+    edu:lessonId "E4" ;
+    edu:label "Bài E4: Định dạng bảng tính" ;
+    edu:belongsToTopic data:topic_6_E .
+
+data:lesson_6_E5 a edu:Lesson ;
+    edu:lessonId "E5" ;
+    edu:label "Bài E5: Biểu đồ" ;
+    edu:belongsToTopic data:topic_6_E .
+
+data:lesson_6_E6 a edu:Lesson ;
+    edu:lessonId "E6" ;
+    edu:label "Bài E6: In ấn" ;
+    edu:belongsToTopic data:topic_6_E .
+
+data:lesson_6_E7 a edu:Lesson ;
+    edu:lessonId "E7" ;
+    edu:label "Bài E7: Trình chiếu" ;
+    edu:belongsToTopic data:topic_6_E .
+
+data:lesson_6_E8 a edu:Lesson ;
+    edu:lessonId "E8" ;
+    edu:label "Bài E8: Tạo bài trình chiếu" ;
+    edu:belongsToTopic data:topic_6_E .
+
+data:lesson_6_F1 a edu:Lesson ;
+    edu:lessonId "F1" ;
+    edu:label "Bài F1: Trình chiếu" ;
+    edu:belongsToTopic data:topic_6_F .
+
+data:lesson_6_F2 a edu:Lesson ;
+    edu:lessonId "F2" ;
+    edu:label "Bài F2: Tạo bài trình chiếu" ;
+    edu:belongsToTopic data:topic_6_F .
+
+data:lesson_6_F3 a edu:Lesson ;
+    edu:lessonId "F3" ;
+    edu:label "Bài F3: Chỉnh sửa bài trình chiếu" ;
+    edu:belongsToTopic data:topic_6_F .
+
+data:lesson_6_F4 a edu:Lesson ;
+    edu:lessonId "F4" ;
+    edu:label "Bài F4: Trình bày bài trình chiếu" ;
+    edu:belongsToTopic data:topic_6_F .
+
+data:lesson_6_F5 a edu:Lesson ;
+    edu:lessonId "F5" ;
+    edu:label "Bài F5: Dự án" ;
+    edu:belongsToTopic data:topic_6_F .
+

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{LESSON_TITLE}} - {{LESSON_CODE}}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/lesson.css">
+  <style>
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+    }
+    .lesson-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+    }
+    .tab-btn {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    .tab-btn:not(.active):hover {
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
+    }
+    .content-section {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .content-section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .progress-indicator {
+      height: 4px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+    }
+    .completed-badge {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 border-b border-white/20 shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <a href="/index.html" class="inline-flex items-center gap-2 text-purple-700 hover:text-purple-900">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            <span class="font-bold">🏠 Trang chủ</span>
+          </a>
+          <span class="text-gray-300">|</span>
+          <div>
+            <div class="text-sm text-gray-600">{{GRADE}} - Bài {{LESSON_CODE}}</div>
+            <div class="font-bold text-gray-900">{{LESSON_ICON}} {{LESSON_TITLE}}</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div id="progressDisplay" class="text-sm font-bold text-purple-700"></div>
+          <span id="userPill" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="px-4 py-6">
+    <div class="lesson-container max-w-6xl mx-auto rounded-3xl shadow-2xl p-6 md:p-8">
+      
+      <!-- Lesson Header -->
+      <div class="text-center mb-6 pb-6 border-b-2 border-gray-200">
+        <div class="text-6xl mb-3">{{LESSON_ICON}}</div>
+        <h1 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">{{LESSON_TITLE}}</h1>
+        <p class="text-gray-600">{{LESSON_DESCRIPTION}}</p>
+        <div class="mt-4 flex justify-center gap-2">
+          <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-bold">{{GRADE}}</span>
+          <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold">Bài {{LESSON_CODE}}</span>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="mb-6">
+        <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+          <div id="progressBar" class="progress-indicator" style="width: 0%"></div>
+        </div>
+        <div class="text-center mt-2 text-sm text-gray-600">
+          <span id="progressText">Hoàn thành: 0/4 phần</span>
+        </div>
+      </div>
+
+      <!-- Tabs Navigation -->
+      <div class="flex flex-wrap gap-3 mb-6 p-4 bg-gray-50 rounded-2xl">
+        <button class="tab-btn active px-6 py-3 rounded-xl font-bold flex items-center gap-2" data-tab="theory">
+          📖 Lý thuyết
+          <span class="completed-badge hidden" data-badge="theory">✓ Đã xem</span>
+        </button>
+        <button class="tab-btn px-6 py-3 rounded-xl font-bold flex items-center gap-2" data-tab="slides">
+          📊 Slide bài giảng
+          <span class="completed-badge hidden" data-badge="slides">✓ Đã xem</span>
+        </button>
+        <button class="tab-btn px-6 py-3 rounded-xl font-bold flex items-center gap-2" data-tab="video">
+          🎥 Video
+          <span class="completed-badge hidden" data-badge="video">✓ Đã xem</span>
+        </button>
+        <button class="tab-btn px-6 py-3 rounded-xl font-bold flex items-center gap-2" data-tab="quiz">
+          ✅ Kiểm tra
+          <span class="completed-badge hidden" data-badge="quiz">✓ Đã làm</span>
+        </button>
+      </div>
+
+      <!-- Content Sections -->
+      <div id="contentArea" class="min-h-[500px]">
+        
+        <!-- Theory Section -->
+        <div class="content-section active" data-content="theory">
+          <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-6 mb-4">
+            <h2 class="text-2xl font-bold text-gray-900 mb-3">📖 Nội dung lý thuyết</h2>
+            <p class="text-gray-700 mb-4">Đọc và tìm hiểu nội dung bài học dưới đây:</p>
+          </div>
+          
+          <!-- PDF/Document Viewer -->
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <div id="theoryContent">
+              {{THEORY_CONTENT}}
+            </div>
+          </div>
+          
+          <div class="mt-6 flex justify-between items-center">
+            <button onclick="markAsCompleted('theory')" class="px-6 py-3 bg-green-500 text-white rounded-xl font-bold hover:bg-green-600 transition">
+              ✓ Đánh dấu đã hoàn thành
+            </button>
+            <button onclick="switchTab('slides')" class="px-6 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition">
+              Tiếp theo: Slide →
+            </button>
+          </div>
+        </div>
+
+        <!-- Slides Section -->
+        <div class="content-section" data-content="slides">
+          <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-6 mb-4">
+            <h2 class="text-2xl font-bold text-gray-900 mb-3">📊 Slide bài giảng</h2>
+            <p class="text-gray-700 mb-4">Xem slide để hiểu rõ hơn về bài học:</p>
+          </div>
+          
+          <!-- Slide Viewer -->
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <div id="slidesContent">
+              {{SLIDES_CONTENT}}
+            </div>
+          </div>
+          
+          <div class="mt-6 flex justify-between items-center">
+            <button onclick="switchTab('theory')" class="px-6 py-3 bg-gray-500 text-white rounded-xl font-bold hover:bg-gray-600 transition">
+              ← Quay lại: Lý thuyết
+            </button>
+            <button onclick="markAsCompleted('slides')" class="px-6 py-3 bg-green-500 text-white rounded-xl font-bold hover:bg-green-600 transition">
+              ✓ Đánh dấu đã hoàn thành
+            </button>
+            <button onclick="switchTab('video')" class="px-6 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition">
+              Tiếp theo: Video →
+            </button>
+          </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="content-section" data-content="video">
+          <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 mb-4">
+            <h2 class="text-2xl font-bold text-gray-900 mb-3">🎥 Video bài giảng</h2>
+            <p class="text-gray-700 mb-4">Xem video để học trực quan hơn:</p>
+          </div>
+          
+          <!-- Video Player -->
+          <div class="bg-white rounded-xl shadow-lg p-4">
+            <div id="videoContent">
+              {{VIDEO_CONTENT}}
+            </div>
+          </div>
+          
+          <div class="mt-6 flex justify-between items-center">
+            <button onclick="switchTab('slides')" class="px-6 py-3 bg-gray-500 text-white rounded-xl font-bold hover:bg-gray-600 transition">
+              ← Quay lại: Slide
+            </button>
+            <button onclick="markAsCompleted('video')" class="px-6 py-3 bg-green-500 text-white rounded-xl font-bold hover:bg-green-600 transition">
+              ✓ Đánh dấu đã hoàn thành
+            </button>
+            <button onclick="switchTab('quiz')" class="px-6 py-3 bg-purple-600 text-white rounded-xl font-bold hover:bg-purple-700 transition">
+              Tiếp theo: Kiểm tra →
+            </button>
+          </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="content-section" data-content="quiz">
+          <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 mb-4">
+            <h2 class="text-2xl font-bold text-gray-900 mb-3">✅ Bài kiểm tra</h2>
+            <p class="text-gray-700 mb-4">Làm bài kiểm tra để đánh giá kiến thức của bạn:</p>
+          </div>
+          
+          <!-- Quiz Link -->
+          <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+            <div class="text-6xl mb-4">📝</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Sẵn sàng làm bài kiểm tra?</h3>
+            <p class="text-gray-600 mb-6">Hoàn thành bài kiểm tra để củng cố kiến thức vừa học</p>
+            <a href="{{QUIZ_URL}}" class="inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-black text-lg hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg">
+              🚀 Bắt đầu làm bài
+            </a>
+          </div>
+          
+          <div class="mt-6 flex justify-between items-center">
+            <button onclick="switchTab('video')" class="px-6 py-3 bg-gray-500 text-white rounded-xl font-bold hover:bg-gray-600 transition">
+              ← Quay lại: Video
+            </button>
+            <a href="/index.html" class="px-6 py-3 bg-green-600 text-white rounded-xl font-bold hover:bg-green-700 transition">
+              🏠 Về trang chủ
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="../assets/js/lesson.js"></script>
+  <script>
+    // Initialize lesson data
+    const LESSON_ID = '{{LESSON_ID}}';
+    const LESSON_CODE = '{{LESSON_CODE}}';
+    
+    // Get student info
+    function getStudent() {
+      try {
+        return JSON.parse(localStorage.getItem('student') || 'null');
+      } catch (e) {
+        return null;
+      }
+    }
+    
+    const student = getStudent();
+    
+    // Display user info
+    (function() {
+      const pill = document.getElementById('userPill');
+      if (student && pill) {
+        pill.classList.remove('hidden');
+        pill.innerHTML = `👤 ${student.name} · Lớp ${student.className}`;
+      }
+    })();
+
+    // Tab switching
+    function switchTab(tabName) {
+      // Update tab buttons
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.tab === tabName) {
+          btn.classList.add('active');
+        }
+      });
+      
+      // Update content sections
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+        if (section.dataset.content === tabName) {
+          section.classList.add('active');
+        }
+      });
+      
+      // Track view
+      trackSectionView(tabName);
+    }
+
+    // Add click handlers to tab buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        switchTab(btn.dataset.tab);
+      });
+    });
+
+    // Mark section as completed
+    function markAsCompleted(section) {
+      const progress = getLessonProgress();
+      if (!progress.completed.includes(section)) {
+        progress.completed.push(section);
+        saveLessonProgress(progress);
+      }
+      updateProgressDisplay();
+      
+      // Show completion message
+      const badge = document.querySelector(`[data-badge="${section}"]`);
+      if (badge) {
+        badge.classList.remove('hidden');
+      }
+      
+      // Auto-switch to next tab
+      const tabs = ['theory', 'slides', 'video', 'quiz'];
+      const currentIndex = tabs.indexOf(section);
+      if (currentIndex < tabs.length - 1) {
+        setTimeout(() => {
+          const nextTab = tabs[currentIndex + 1];
+          switchTab(nextTab);
+        }, 500);
+      }
+    }
+
+    // Track section view
+    function trackSectionView(section) {
+      const progress = getLessonProgress();
+      if (!progress.viewed.includes(section)) {
+        progress.viewed.push(section);
+        saveLessonProgress(progress);
+      }
+      updateProgressDisplay();
+    }
+
+    // Get lesson progress from localStorage
+    function getLessonProgress() {
+      const key = `lesson_progress_${LESSON_ID}`;
+      try {
+        const data = localStorage.getItem(key);
+        if (data) {
+          return JSON.parse(data);
+        }
+      } catch (e) {}
+      
+      return {
+        lessonId: LESSON_ID,
+        viewed: [],
+        completed: [],
+        lastAccess: new Date().toISOString()
+      };
+    }
+
+    // Save lesson progress to localStorage
+    function saveLessonProgress(progress) {
+      const key = `lesson_progress_${LESSON_ID}`;
+      progress.lastAccess = new Date().toISOString();
+      localStorage.setItem(key, JSON.stringify(progress));
+    }
+
+    // Update progress display
+    function updateProgressDisplay() {
+      const progress = getLessonProgress();
+      const total = 4; // theory, slides, video, quiz
+      const completed = progress.completed.length;
+      const percentage = (completed / total) * 100;
+      
+      // Update progress bar
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = percentage + '%';
+      }
+      
+      // Update progress text
+      const progressText = document.getElementById('progressText');
+      if (progressText) {
+        progressText.textContent = `Hoàn thành: ${completed}/${total} phần`;
+      }
+      
+      const progressDisplay = document.getElementById('progressDisplay');
+      if (progressDisplay) {
+        progressDisplay.textContent = `${Math.round(percentage)}%`;
+      }
+      
+      // Show badges for completed sections
+      progress.completed.forEach(section => {
+        const badge = document.querySelector(`[data-badge="${section}"]`);
+        if (badge) {
+          badge.classList.remove('hidden');
+        }
+      });
+    }
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      updateProgressDisplay();
+      trackSectionView('theory'); // Track initial view
+    });
+  </script>
+</body>
+</html>
+
+

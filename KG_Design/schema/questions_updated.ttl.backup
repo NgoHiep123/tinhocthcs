@@ -1,0 +1,201 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix data: <http://education.vn/data/> .
+
+data:question/K6A1_01 a edu:Question ;
+    edu:q_id "K6A1_01" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_02 a edu:Question ;
+    edu:q_id "K6A1_02" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_03 a edu:Question ;
+    edu:q_id "K6A1_03" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_04 a edu:Question ;
+    edu:q_id "K6A1_04" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_05 a edu:Question ;
+    edu:q_id "K6A1_05" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_06 a edu:Question ;
+    edu:q_id "K6A1_06" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_07 a edu:Question ;
+    edu:q_id "K6A1_07" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_08 a edu:Question ;
+    edu:q_id "K6A1_08" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_09 a edu:Question ;
+    edu:q_id "K6A1_09" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_10 a edu:Question ;
+    edu:q_id "K6A1_10" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_11 a edu:Question ;
+    edu:q_id "K6A1_11" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A1_12 a edu:Question ;
+    edu:q_id "K6A1_12" ;
+    edu:requiresSkill data:skill/A1_Thong_tin_va_xu_li ;
+    edu:belongsToLesson data:lesson/6_A1 .
+
+data:question/K6A2_01 a edu:Question ;
+    edu:q_id "K6A2_01" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_02 a edu:Question ;
+    edu:q_id "K6A2_02" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_03 a edu:Question ;
+    edu:q_id "K6A2_03" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_04 a edu:Question ;
+    edu:q_id "K6A2_04" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_05 a edu:Question ;
+    edu:q_id "K6A2_05" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_06 a edu:Question ;
+    edu:q_id "K6A2_06" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_07 a edu:Question ;
+    edu:q_id "K6A2_07" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_08 a edu:Question ;
+    edu:q_id "K6A2_08" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_09 a edu:Question ;
+    edu:q_id "K6A2_09" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_10 a edu:Question ;
+    edu:q_id "K6A2_10" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_11 a edu:Question ;
+    edu:q_id "K6A2_11" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A2_12 a edu:Question ;
+    edu:q_id "K6A2_12" ;
+    edu:requiresSkill data:skill/A2_Luu_tru_va_trao_doi ;
+    edu:belongsToLesson data:lesson/6_A2 .
+
+data:question/K6A3_01 a edu:Question ;
+    edu:q_id "K6A3_01" ;
+    edu:requiresSkill data:skill/A3_May_tinh_trong_HDTT ;
+    edu:belongsToLesson data:lesson/6_A3 .
+
+data:question/K6A3_02 a edu:Question ;
+    edu:q_id "K6A3_02" ;
+    edu:requiresSkill data:skill/A3_May_tinh_trong_HDTT ;
+    edu:belongsToLesson data:lesson/6_A3 .
+
+data:question/K6A3_03 a edu:Question ;
+    edu:q_id "K6A3_03" ;
+    edu:requiresSkill data:skill/A3_May_tinh_trong_HDTT ;
+    edu:belongsToLesson data:lesson/6_A3 .
+
+data:question/K6A3_04 a edu:Question ;
+    edu:q_id "K6A3_04" ;
+    edu:requiresSkill data:skill/A3_May_tinh_trong_HDTT ;
+    edu:belongsToLesson data:lesson/6_A3 .
+
+data:question/K6A3_05 a edu:Question ;
+    edu:q_id "K6A3_05" ;
+    edu:requiresSkill data:skill/A3_May_tinh_trong_HDTT ;
+    edu:belongsToLesson data:lesson/6_A3 .
+
+data:question/K6B1_01 a edu:Question ;
+    edu:q_id "K6B1_01" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+
+data:question/K6B1_02 a edu:Question ;
+    edu:q_id "K6B1_02" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+
+data:question/K6B1_03 a edu:Question ;
+    edu:q_id "K6B1_03" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+
+data:question/K6B1_04 a edu:Question ;
+    edu:q_id "K6B1_04" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+
+data:question/K6B1_05 a edu:Question ;
+    edu:q_id "K6B1_05" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+
+data:question/K6B1_06 a edu:Question ;
+    edu:q_id "K6B1_06" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+
+data:question/K6B1_07 a edu:Question ;
+    edu:q_id "K6B1_07" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+
+data:question/K6B1_08 a edu:Question ;
+    edu:q_id "K6B1_08" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+
+data:question/K6B1_09 a edu:Question ;
+    edu:q_id "K6B1_09" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+
+data:question/K6B1_10 a edu:Question ;
+    edu:q_id "K6B1_10" ;
+    edu:requiresSkill data:skill/k6_b1_khai_niem_loi_ich ;
+    edu:belongsToLesson data:lesson/6_B1 .
+

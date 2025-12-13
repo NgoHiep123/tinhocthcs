@@ -1,0 +1,424 @@
+<!-- Video Player Component -->
+<div class="video-player-container">
+  <div class="flex items-center justify-between mb-4 p-4 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl">🎥</span>
+      <div>
+        <div class="font-bold text-gray-900">Video Bài Giảng</div>
+        <div class="text-sm text-gray-600">{{VIDEO_TITLE}}</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <span id="videoDuration" class="text-sm font-bold text-purple-700">⏱️ --:--</span>
+      <a href="{{VIDEO_URL}}" download class="px-4 py-2 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition">
+        📥 Tải video
+      </a>
+    </div>
+  </div>
+  
+  <!-- Video Player -->
+  <div class="bg-black rounded-lg shadow-2xl overflow-hidden">
+    <video 
+      id="lessonVideo"
+      class="w-full"
+      controls
+      controlsList="nodownload"
+      preload="metadata"
+      poster="{{VIDEO_POSTER}}"
+      style="max-height: 600px;"
+    >
+      <source src="{{VIDEO_URL}}" type="video/mp4">
+      <source src="{{VIDEO_URL_WEBM}}" type="video/webm">
+      <p class="text-white p-4">
+        Trình duyệt của bạn không hỗ trợ video HTML5.
+        <a href="{{VIDEO_URL}}" class="text-blue-400 underline">Tải video xuống</a>
+      </p>
+    </video>
+  </div>
+  
+  <!-- Video Controls & Info -->
+  <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+    
+    <!-- Playback Speed -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h4 class="font-bold text-gray-900 mb-2">⚡ Tốc độ phát</h4>
+      <div class="flex flex-wrap gap-2">
+        <button onclick="setPlaybackRate(0.5)" class="speed-btn px-3 py-1 bg-gray-200 rounded-lg text-sm font-bold hover:bg-purple-600 hover:text-white transition">0.5x</button>
+        <button onclick="setPlaybackRate(0.75)" class="speed-btn px-3 py-1 bg-gray-200 rounded-lg text-sm font-bold hover:bg-purple-600 hover:text-white transition">0.75x</button>
+        <button onclick="setPlaybackRate(1)" class="speed-btn px-3 py-1 bg-purple-600 text-white rounded-lg text-sm font-bold">1x</button>
+        <button onclick="setPlaybackRate(1.25)" class="speed-btn px-3 py-1 bg-gray-200 rounded-lg text-sm font-bold hover:bg-purple-600 hover:text-white transition">1.25x</button>
+        <button onclick="setPlaybackRate(1.5)" class="speed-btn px-3 py-1 bg-gray-200 rounded-lg text-sm font-bold hover:bg-purple-600 hover:text-white transition">1.5x</button>
+        <button onclick="setPlaybackRate(2)" class="speed-btn px-3 py-1 bg-gray-200 rounded-lg text-sm font-bold hover:bg-purple-600 hover:text-white transition">2x</button>
+      </div>
+    </div>
+    
+    <!-- Watch Progress -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h4 class="font-bold text-gray-900 mb-2">📊 Tiến độ xem</h4>
+      <div class="mb-2">
+        <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+          <div id="watchProgress" class="h-full bg-gradient-to-r from-green-500 to-emerald-500 transition-all" style="width: 0%"></div>
+        </div>
+      </div>
+      <div class="flex justify-between text-sm">
+        <span id="currentTime" class="text-gray-600">0:00</span>
+        <span id="totalTime" class="text-gray-600">0:00</span>
+      </div>
+      <div class="mt-2 text-center">
+        <span id="watchPercentage" class="text-lg font-bold text-green-600">0%</span>
+      </div>
+    </div>
+    
+    <!-- Video Quality -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h4 class="font-bold text-gray-900 mb-2">🎬 Chất lượng</h4>
+      <div class="space-y-2">
+        <button onclick="changeQuality('720p')" class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm font-bold hover:bg-purple-600 hover:text-white transition text-left">
+          📺 720p HD
+        </button>
+        <button onclick="changeQuality('480p')" class="w-full px-3 py-2 bg-purple-600 text-white rounded-lg text-sm font-bold text-left">
+          📱 480p (Mặc định)
+        </button>
+        <button onclick="changeQuality('360p')" class="w-full px-3 py-2 bg-gray-200 rounded-lg text-sm font-bold hover:bg-purple-600 hover:text-white transition text-left">
+          🌐 360p (Tiết kiệm data)
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Video Chapters/Bookmarks (if available) -->
+  <div id="videoChapters" class="mt-4 bg-white rounded-lg shadow p-4 hidden">
+    <h4 class="font-bold text-gray-900 mb-3">📑 Mục lục video</h4>
+    <div id="chaptersList" class="space-y-2">
+      <!-- Chapters will be populated by JavaScript -->
+    </div>
+  </div>
+  
+  <!-- Video Notes -->
+  <div class="mt-4 bg-blue-50 rounded-lg p-4">
+    <h4 class="font-bold text-blue-900 mb-2">📝 Ghi chú về video:</h4>
+    <div id="videoNotes" class="text-gray-700">
+      {{VIDEO_NOTES}}
+    </div>
+  </div>
+  
+  <!-- YouTube/External Video Alternative -->
+  <div id="youtubeEmbed" class="hidden mt-4">
+    <div class="bg-black rounded-lg shadow-2xl overflow-hidden">
+      <iframe 
+        width="100%" 
+        height="600" 
+        src="{{YOUTUBE_EMBED_URL}}" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Video player configuration
+  const videoConfig = {
+    videoId: '{{VIDEO_ID}}',
+    chapters: {{VIDEO_CHAPTERS}}, // Array of {time: seconds, title: string}
+    hasWatchedThreshold: 0.8, // 80% watched = completed
+    qualities: {{VIDEO_QUALITIES}} // Object with quality URLs
+  };
+  
+  const video = document.getElementById('lessonVideo');
+  
+  // Initialize video player
+  function initVideoPlayer() {
+    if (!video) return;
+    
+    // Update duration when metadata loaded
+    video.addEventListener('loadedmetadata', () => {
+      const duration = formatTime(video.duration);
+      document.getElementById('videoDuration').textContent = `⏱️ ${duration}`;
+      document.getElementById('totalTime').textContent = duration;
+    });
+    
+    // Update progress while playing
+    video.addEventListener('timeupdate', () => {
+      updateVideoProgress();
+      checkVideoCompletion();
+    });
+    
+    // Track play
+    video.addEventListener('play', () => {
+      trackVideoEvent('play');
+    });
+    
+    // Track pause
+    video.addEventListener('pause', () => {
+      trackVideoEvent('pause');
+    });
+    
+    // Track ended
+    video.addEventListener('ended', () => {
+      trackVideoEvent('ended');
+      markVideoAsCompleted();
+    });
+    
+    // Generate chapters if available
+    if (videoConfig.chapters && videoConfig.chapters.length > 0) {
+      generateChapters();
+      document.getElementById('videoChapters').classList.remove('hidden');
+    }
+    
+    // Restore last watch position
+    restoreWatchPosition();
+  }
+  
+  // Update video progress display
+  function updateVideoProgress() {
+    if (!video) return;
+    
+    const current = video.currentTime;
+    const total = video.duration;
+    const percentage = (current / total) * 100;
+    
+    // Update progress bar
+    const progressBar = document.getElementById('watchProgress');
+    if (progressBar) {
+      progressBar.style.width = percentage + '%';
+    }
+    
+    // Update time displays
+    const currentTimeEl = document.getElementById('currentTime');
+    if (currentTimeEl) {
+      currentTimeEl.textContent = formatTime(current);
+    }
+    
+    const percentageEl = document.getElementById('watchPercentage');
+    if (percentageEl) {
+      percentageEl.textContent = Math.round(percentage) + '%';
+    }
+    
+    // Save watch position
+    saveWatchPosition(current, total);
+  }
+  
+  // Format time in MM:SS or HH:MM:SS
+  function formatTime(seconds) {
+    if (isNaN(seconds)) return '0:00';
+    
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = Math.floor(seconds % 60);
+    
+    if (hours > 0) {
+      return `${hours}:${pad(minutes)}:${pad(secs)}`;
+    }
+    return `${minutes}:${pad(secs)}`;
+  }
+  
+  function pad(num) {
+    return num.toString().padStart(2, '0');
+  }
+  
+  // Set playback rate
+  function setPlaybackRate(rate) {
+    if (!video) return;
+    
+    video.playbackRate = rate;
+    
+    // Update button styles
+    document.querySelectorAll('.speed-btn').forEach(btn => {
+      btn.classList.remove('bg-purple-600', 'text-white');
+      btn.classList.add('bg-gray-200');
+    });
+    
+    event.target.classList.remove('bg-gray-200');
+    event.target.classList.add('bg-purple-600', 'text-white');
+    
+    trackVideoEvent('speed_change', { speed: rate });
+  }
+  
+  // Change video quality
+  function changeQuality(quality) {
+    if (!video || !videoConfig.qualities || !videoConfig.qualities[quality]) {
+      console.log('Quality not available:', quality);
+      return;
+    }
+    
+    const currentTime = video.currentTime;
+    const wasPlaying = !video.paused;
+    
+    // Change source
+    video.src = videoConfig.qualities[quality];
+    video.currentTime = currentTime;
+    
+    if (wasPlaying) {
+      video.play();
+    }
+    
+    trackVideoEvent('quality_change', { quality });
+  }
+  
+  // Generate video chapters
+  function generateChapters() {
+    const chaptersList = document.getElementById('chaptersList');
+    if (!chaptersList || !videoConfig.chapters) return;
+    
+    chaptersList.innerHTML = '';
+    
+    videoConfig.chapters.forEach((chapter, index) => {
+      const chapterItem = document.createElement('button');
+      chapterItem.className = 'w-full text-left p-3 bg-gray-50 hover:bg-purple-100 rounded-lg transition flex items-center gap-3';
+      chapterItem.onclick = () => jumpToChapter(chapter.time);
+      chapterItem.innerHTML = `
+        <span class="text-2xl">${index + 1}</span>
+        <div class="flex-1">
+          <div class="font-bold text-gray-900">${chapter.title}</div>
+          <div class="text-sm text-gray-600">${formatTime(chapter.time)}</div>
+        </div>
+        <span class="text-purple-600">▶</span>
+      `;
+      chaptersList.appendChild(chapterItem);
+    });
+  }
+  
+  // Jump to chapter
+  function jumpToChapter(time) {
+    if (!video) return;
+    video.currentTime = time;
+    video.play();
+  }
+  
+  // Check if video is completed
+  function checkVideoCompletion() {
+    if (!video) return;
+    
+    const progress = video.currentTime / video.duration;
+    
+    if (progress >= videoConfig.hasWatchedThreshold) {
+      markVideoAsCompleted();
+    }
+  }
+  
+  // Mark video as completed
+  function markVideoAsCompleted() {
+    const key = `video_completed_${videoConfig.videoId}`;
+    if (localStorage.getItem(key) !== 'true') {
+      localStorage.setItem(key, 'true');
+      console.log('✅ Video marked as completed');
+      
+      // Trigger lesson completion for this section
+      if (typeof markAsCompleted === 'function') {
+        markAsCompleted('video');
+      }
+    }
+  }
+  
+  // Save watch position
+  function saveWatchPosition(current, total) {
+    const key = `video_position_${videoConfig.videoId}`;
+    localStorage.setItem(key, JSON.stringify({
+      currentTime: current,
+      duration: total,
+      lastWatched: new Date().toISOString()
+    }));
+  }
+  
+  // Restore watch position
+  function restoreWatchPosition() {
+    if (!video) return;
+    
+    const key = `video_position_${videoConfig.videoId}`;
+    const data = localStorage.getItem(key);
+    
+    if (data) {
+      try {
+        const { currentTime } = JSON.parse(data);
+        if (currentTime > 10 && currentTime < video.duration - 10) {
+          // Show resume prompt
+          const resume = confirm(`Bạn đã xem đến ${formatTime(currentTime)}. Tiếp tục từ đó?`);
+          if (resume) {
+            video.currentTime = currentTime;
+          }
+        }
+      } catch (e) {
+        console.error('Error restoring position:', e);
+      }
+    }
+  }
+  
+  // Track video events
+  function trackVideoEvent(eventType, data = {}) {
+    console.log('📹 Video event:', eventType, data);
+    
+    // Could send to analytics or save to localStorage
+    const events = JSON.parse(localStorage.getItem('video_events') || '[]');
+    events.push({
+      videoId: videoConfig.videoId,
+      event: eventType,
+      timestamp: new Date().toISOString(),
+      ...data
+    });
+    
+    // Keep only last 100 events
+    if (events.length > 100) {
+      events.splice(0, events.length - 100);
+    }
+    
+    localStorage.setItem('video_events', JSON.stringify(events));
+  }
+  
+  // Initialize on load
+  window.addEventListener('DOMContentLoaded', initVideoPlayer);
+  
+  // Keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    if (!video) return;
+    
+    // Space: play/pause
+    if (e.code === 'Space' && e.target === document.body) {
+      e.preventDefault();
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+    
+    // Arrow Left: -5s
+    if (e.code === 'ArrowLeft') {
+      e.preventDefault();
+      video.currentTime = Math.max(0, video.currentTime - 5);
+    }
+    
+    // Arrow Right: +5s
+    if (e.code === 'ArrowRight') {
+      e.preventDefault();
+      video.currentTime = Math.min(video.duration, video.currentTime + 5);
+    }
+    
+    // M: mute/unmute
+    if (e.code === 'KeyM') {
+      e.preventDefault();
+      video.muted = !video.muted;
+    }
+    
+    // F: fullscreen
+    if (e.code === 'KeyF') {
+      e.preventDefault();
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      }
+    }
+  });
+</script>
+
+<style>
+  .video-player-container video {
+    background: black;
+  }
+  
+  .video-player-container video::-webkit-media-controls-panel {
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  }
+</style>
+
+

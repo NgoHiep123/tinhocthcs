@@ -1,0 +1,24 @@
+@prefix data: <http://education.vn/data/> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://education.vn/data/student/2324_0001> a edu:Student ; edu:studentId "2324_0001" .
+<http://education.vn/data/student/2324_0002> a edu:Student ; edu:studentId "2324_0002" .
+<http://education.vn/data/student/2324_0003> a edu:Student ; edu:studentId "2324_0003" .
+<http://education.vn/data/student/2324_0004> a edu:Student ; edu:studentId "2324_0004" .
+<http://education.vn/data/student/2324_0005> a edu:Student ; edu:studentId "2324_0005" .
+<http://education.vn/data/student/2324_0006> a edu:Student ; edu:studentId "2324_0006" .
+<http://education.vn/data/student/2324_0007> a edu:Student ; edu:studentId "2324_0007" .
+<http://education.vn/data/student/2324_0008> a edu:Student ; edu:studentId "2324_0008" .
+<http://education.vn/data/student/2324_0009> a edu:Student ; edu:studentId "2324_0009" .
+<http://education.vn/data/student/2324_0010> a edu:Student ; edu:studentId "2324_0010" .
+<http://education.vn/data/student/2324_0011> a edu:Student ; edu:studentId "2324_0011" .
+<http://education.vn/data/student/2324_0012> a edu:Student ; edu:studentId "2324_0012" .
+<http://education.vn/data/student/2324_0013> a edu:Student ; edu:studentId "2324_0013" .
+<http://education.vn/data/student/2324_0014> a edu:Student ; edu:studentId "2324_0014" .
+<http://education.vn/data/student/2324_0015> a edu:Student ; edu:studentId "2324_0015" .
+<http://education.vn/data/student/2324_0016> a edu:Student ; edu:studentId "2324_0016" .
+<http://education.vn/data/student/2324_0017> a edu:Student ; edu:studentId "2324_0017" .
+<http://education.vn/data/student/2324_0018> a edu:Student ; edu:studentId "2324_0018" .
+<http://education.vn/data/student/2324_0019> a edu:Student ; edu:studentId "2324_0019" .
+<http://education.vn/data/student/2324_0020> a edu:Student ; edu:studentId "2324_0020" .

@@ -1,0 +1,486 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix data: <http://education.vn/data/> .
+
+data:testresult/result_2324_0001_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.7"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0001 edu:hasResult data:testresult/result_2324_0001_ASSESS_K6_A1_2024 .
+data:student/2324_0001 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0001_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.8"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0001 edu:hasResult data:testresult/result_2324_0001_ASSESS_K6_A2_2024 .
+data:student/2324_0001 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0001_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.75"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0001 edu:hasResult data:testresult/result_2324_0001_ASSESS_K6_A3_2024 .
+data:student/2324_0001 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0002_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.9"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0002 edu:hasResult data:testresult/result_2324_0002_ASSESS_K6_A1_2024 .
+data:student/2324_0002 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0002_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.95"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0002 edu:hasResult data:testresult/result_2324_0002_ASSESS_K6_A2_2024 .
+data:student/2324_0002 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0002_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.9"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0002 edu:hasResult data:testresult/result_2324_0002_ASSESS_K6_A3_2024 .
+data:student/2324_0002 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0003_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "1.0"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0003 edu:hasResult data:testresult/result_2324_0003_ASSESS_K6_A1_2024 .
+data:student/2324_0003 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0003_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.85"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0003 edu:hasResult data:testresult/result_2324_0003_ASSESS_K6_A2_2024 .
+data:student/2324_0003 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0003_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.9"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0003 edu:hasResult data:testresult/result_2324_0003_ASSESS_K6_A3_2024 .
+data:student/2324_0003 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0004_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.69"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0004 edu:hasResult data:testresult/result_2324_0004_ASSESS_K6_A1_2024 .
+data:student/2324_0004 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0004_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.98"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0004 edu:hasResult data:testresult/result_2324_0004_ASSESS_K6_A2_2024 .
+data:student/2324_0004 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0004_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.88"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0004 edu:hasResult data:testresult/result_2324_0004_ASSESS_K6_A3_2024 .
+data:student/2324_0004 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0005_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.91"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0005 edu:hasResult data:testresult/result_2324_0005_ASSESS_K6_A1_2024 .
+data:student/2324_0005 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0005_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "1.0"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0005 edu:hasResult data:testresult/result_2324_0005_ASSESS_K6_A2_2024 .
+data:student/2324_0005 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0005_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.97"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0005 edu:hasResult data:testresult/result_2324_0005_ASSESS_K6_A3_2024 .
+data:student/2324_0005 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0006_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.69"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0006 edu:hasResult data:testresult/result_2324_0006_ASSESS_K6_A1_2024 .
+data:student/2324_0006 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0006_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.93"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0006 edu:hasResult data:testresult/result_2324_0006_ASSESS_K6_A2_2024 .
+data:student/2324_0006 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0006_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.85"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0006 edu:hasResult data:testresult/result_2324_0006_ASSESS_K6_A3_2024 .
+data:student/2324_0006 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0007_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.98"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0007 edu:hasResult data:testresult/result_2324_0007_ASSESS_K6_A1_2024 .
+data:student/2324_0007 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0007_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.76"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0007 edu:hasResult data:testresult/result_2324_0007_ASSESS_K6_A2_2024 .
+data:student/2324_0007 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0007_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.83"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0007 edu:hasResult data:testresult/result_2324_0007_ASSESS_K6_A3_2024 .
+data:student/2324_0007 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0008_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.5"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0008 edu:hasResult data:testresult/result_2324_0008_ASSESS_K6_A1_2024 .
+data:student/2324_0008 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0008_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.6"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0008 edu:hasResult data:testresult/result_2324_0008_ASSESS_K6_A2_2024 .
+data:student/2324_0008 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0008_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.55"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0008 edu:hasResult data:testresult/result_2324_0008_ASSESS_K6_A3_2024 .
+data:student/2324_0008 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0009_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.85"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0009 edu:hasResult data:testresult/result_2324_0009_ASSESS_K6_A1_2024 .
+data:student/2324_0009 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0009_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.9"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0009 edu:hasResult data:testresult/result_2324_0009_ASSESS_K6_A2_2024 .
+data:student/2324_0009 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0009_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.88"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0009 edu:hasResult data:testresult/result_2324_0009_ASSESS_K6_A3_2024 .
+data:student/2324_0009 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0010_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.92"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0010 edu:hasResult data:testresult/result_2324_0010_ASSESS_K6_A1_2024 .
+data:student/2324_0010 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0010_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.88"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0010 edu:hasResult data:testresult/result_2324_0010_ASSESS_K6_A2_2024 .
+data:student/2324_0010 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0010_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.9"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0010 edu:hasResult data:testresult/result_2324_0010_ASSESS_K6_A3_2024 .
+data:student/2324_0010 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0011_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.45"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0011 edu:hasResult data:testresult/result_2324_0011_ASSESS_K6_A1_2024 .
+data:student/2324_0011 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0011_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.5"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0011 edu:hasResult data:testresult/result_2324_0011_ASSESS_K6_A2_2024 .
+data:student/2324_0011 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0011_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.48"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0011 edu:hasResult data:testresult/result_2324_0011_ASSESS_K6_A3_2024 .
+data:student/2324_0011 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0012_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.8"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0012 edu:hasResult data:testresult/result_2324_0012_ASSESS_K6_A1_2024 .
+data:student/2324_0012 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0012_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.85"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0012 edu:hasResult data:testresult/result_2324_0012_ASSESS_K6_A2_2024 .
+data:student/2324_0012 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0012_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.82"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0012 edu:hasResult data:testresult/result_2324_0012_ASSESS_K6_A3_2024 .
+data:student/2324_0012 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0013_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.75"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0013 edu:hasResult data:testresult/result_2324_0013_ASSESS_K6_A1_2024 .
+data:student/2324_0013 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0013_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.8"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0013 edu:hasResult data:testresult/result_2324_0013_ASSESS_K6_A2_2024 .
+data:student/2324_0013 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0013_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.78"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0013 edu:hasResult data:testresult/result_2324_0013_ASSESS_K6_A3_2024 .
+data:student/2324_0013 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0014_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.88"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0014 edu:hasResult data:testresult/result_2324_0014_ASSESS_K6_A1_2024 .
+data:student/2324_0014 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0014_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.92"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0014 edu:hasResult data:testresult/result_2324_0014_ASSESS_K6_A2_2024 .
+data:student/2324_0014 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0014_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.9"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0014 edu:hasResult data:testresult/result_2324_0014_ASSESS_K6_A3_2024 .
+data:student/2324_0014 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0015_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.65"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0015 edu:hasResult data:testresult/result_2324_0015_ASSESS_K6_A1_2024 .
+data:student/2324_0015 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0015_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.7"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0015 edu:hasResult data:testresult/result_2324_0015_ASSESS_K6_A2_2024 .
+data:student/2324_0015 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0015_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.68"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0015 edu:hasResult data:testresult/result_2324_0015_ASSESS_K6_A3_2024 .
+data:student/2324_0015 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0016_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.95"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0016 edu:hasResult data:testresult/result_2324_0016_ASSESS_K6_A1_2024 .
+data:student/2324_0016 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0016_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.98"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0016 edu:hasResult data:testresult/result_2324_0016_ASSESS_K6_A2_2024 .
+data:student/2324_0016 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0016_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.96"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0016 edu:hasResult data:testresult/result_2324_0016_ASSESS_K6_A3_2024 .
+data:student/2324_0016 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0017_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.72"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0017 edu:hasResult data:testresult/result_2324_0017_ASSESS_K6_A1_2024 .
+data:student/2324_0017 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0017_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.78"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0017 edu:hasResult data:testresult/result_2324_0017_ASSESS_K6_A2_2024 .
+data:student/2324_0017 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0017_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.75"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0017 edu:hasResult data:testresult/result_2324_0017_ASSESS_K6_A3_2024 .
+data:student/2324_0017 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0018_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.82"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0018 edu:hasResult data:testresult/result_2324_0018_ASSESS_K6_A1_2024 .
+data:student/2324_0018 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0018_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.88"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0018 edu:hasResult data:testresult/result_2324_0018_ASSESS_K6_A2_2024 .
+data:student/2324_0018 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0018_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.85"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0018 edu:hasResult data:testresult/result_2324_0018_ASSESS_K6_A3_2024 .
+data:student/2324_0018 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0019_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.58"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0019 edu:hasResult data:testresult/result_2324_0019_ASSESS_K6_A1_2024 .
+data:student/2324_0019 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0019_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.62"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0019 edu:hasResult data:testresult/result_2324_0019_ASSESS_K6_A2_2024 .
+data:student/2324_0019 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0019_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.6"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0019 edu:hasResult data:testresult/result_2324_0019_ASSESS_K6_A3_2024 .
+data:student/2324_0019 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+
+data:testresult/result_2324_0020_ASSESS_K6_A1_2024 a edu:TestResult ;
+    edu:score "0.9"^^xsd:decimal ;
+    edu:testDate "2024-09-15T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A1_2024 .
+
+data:student/2324_0020 edu:hasResult data:testresult/result_2324_0020_ASSESS_K6_A1_2024 .
+data:student/2324_0020 edu:takeTest data:test/ASSESS_K6_A1_2024 .
+
+data:testresult/result_2324_0020_ASSESS_K6_A2_2024 a edu:TestResult ;
+    edu:score "0.93"^^xsd:decimal ;
+    edu:testDate "2024-09-22T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A2_2024 .
+
+data:student/2324_0020 edu:hasResult data:testresult/result_2324_0020_ASSESS_K6_A2_2024 .
+data:student/2324_0020 edu:takeTest data:test/ASSESS_K6_A2_2024 .
+
+data:testresult/result_2324_0020_ASSESS_K6_A3_2024 a edu:TestResult ;
+    edu:score "0.91"^^xsd:decimal ;
+    edu:testDate "2024-09-29T00:00:00"^^xsd:dateTime ;
+    edu:forTest data:test/ASSESS_K6_A3_2024 .
+
+data:student/2324_0020 edu:hasResult data:testresult/result_2324_0020_ASSESS_K6_A3_2024 .
+data:student/2324_0020 edu:takeTest data:test/ASSESS_K6_A3_2024 .
+

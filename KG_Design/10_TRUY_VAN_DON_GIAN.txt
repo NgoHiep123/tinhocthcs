@@ -1,0 +1,204 @@
+================================================================================
+10 TRUY VẤN SPARQL ĐƠN GIẢN - COPY VÀO GRAPHDB
+================================================================================
+
+LƯU Ý: Nếu GraphDB báo lỗi "Multiple prefix declarations", hãy xóa 2 dòng:
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+================================================================================
+1. LIỆT KÊ TẤT CẢ HỌC SINH
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+SELECT ?student ?studentId ?fullName ?className
+WHERE {
+  ?student a edu:Student ;
+           edu:studentId ?studentId ;
+           edu:fullName ?fullName ;
+           edu:belongsToClass ?classIRI .
+  ?classIRI edu:className ?className
+}
+ORDER BY ?className ?studentId
+LIMIT 50
+
+================================================================================
+2. LIỆT KÊ TẤT CẢ LỚP HỌC
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+SELECT ?class ?className ?grade
+WHERE {
+  ?class a edu:Class ;
+         edu:className ?className ;
+         edu:belongsToGrade ?gradeIRI .
+  ?gradeIRI edu:grade ?grade
+}
+ORDER BY ?grade ?className
+
+================================================================================
+3. LIỆT KÊ TẤT CẢ BÀI HỌC
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+SELECT ?lesson ?lessonId ?label ?topicLabel
+WHERE {
+  ?lesson a edu:Lesson ;
+          edu:lessonId ?lessonId ;
+          edu:label ?label ;
+          edu:belongsToTopic ?topicIRI .
+  ?topicIRI edu:label ?topicLabel
+}
+ORDER BY ?lessonId
+
+================================================================================
+4. TÌM HỌC SINH THEO LỚP (Thay data:class_6_1 bằng lớp bạn muốn)
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+SELECT ?student ?studentId ?fullName
+WHERE {
+  ?student a edu:Student ;
+           edu:studentId ?studentId ;
+           edu:fullName ?fullName ;
+           edu:belongsToClass data:class_6_1
+}
+ORDER BY ?studentId
+
+================================================================================
+5. TÌM CÂU HỎI THEO BÀI HỌC (Thay data:lesson_6_A1 bằng bài học bạn muốn)
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+SELECT ?question ?q_id ?questionText
+WHERE {
+  ?question a edu:Question ;
+            edu:q_id ?q_id ;
+            edu:questionText ?questionText ;
+            edu:belongsToLesson data:lesson_6_A1
+}
+ORDER BY ?q_id
+
+================================================================================
+6. TÌM KỸ NĂNG THEO CÂU HỎI
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+SELECT ?question ?q_id ?skill ?skillId ?skillName
+WHERE {
+  ?question a edu:Question ;
+            edu:q_id ?q_id ;
+            edu:requiresSkill ?skill .
+  ?skill edu:skillId ?skillId ;
+         edu:name ?skillName
+}
+ORDER BY ?q_id
+LIMIT 20
+
+================================================================================
+7. TÌM KẾT QUẢ KIỂM TRA CỦA HỌC SINH
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+SELECT ?student ?studentId ?fullName ?test ?testName ?score ?testDate
+WHERE {
+  ?student a edu:Student ;
+           edu:studentId ?studentId ;
+           edu:fullName ?fullName ;
+           edu:hasResult ?result .
+  ?result edu:forTest ?test ;
+          edu:score ?score ;
+          edu:testDate ?testDate .
+  ?test edu:testName ?testName
+}
+ORDER BY ?testDate DESC
+LIMIT 20
+
+================================================================================
+8. TÌM MỨC ĐỘ THÀNH THẠO CỦA HỌC SINH
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+SELECT ?student ?studentId ?fullName ?skill ?skillId ?skillName ?score ?lastUpdated
+WHERE {
+  ?student a edu:Student ;
+           edu:studentId ?studentId ;
+           edu:fullName ?fullName ;
+           edu:hasMastery ?mastery .
+  ?mastery edu:forSkill ?skill ;
+           edu:score ?score ;
+           edu:lastUpdated ?lastUpdated .
+  ?skill edu:skillId ?skillId ;
+         edu:name ?skillName
+}
+ORDER BY ?studentId ?skillId
+LIMIT 30
+
+================================================================================
+9. TÌM GIÁO VIÊN DẠY LỚP NÀO
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+PREFIX data: <http://education.vn/data/>
+
+SELECT ?teacher ?teacherId ?fullName ?class ?className
+WHERE {
+  ?teacher a edu:Teacher ;
+           edu:teacherId ?teacherId ;
+           edu:fullName ?fullName ;
+           edu:teaches ?class .
+  ?class edu:className ?className
+}
+ORDER BY ?teacherId ?className
+
+================================================================================
+10. ĐẾM SỐ LƯỢNG THỰC THỂ (Thống kê tổng quan)
+================================================================================
+
+PREFIX edu: <http://education.vn/ontology#>
+
+SELECT 
+  (COUNT(DISTINCT ?student) as ?soHocSinh)
+  (COUNT(DISTINCT ?teacher) as ?soGiaoVien)
+  (COUNT(DISTINCT ?class) as ?soLop)
+  (COUNT(DISTINCT ?lesson) as ?soBaiHoc)
+  (COUNT(DISTINCT ?question) as ?soCauHoi)
+  (COUNT(DISTINCT ?skill) as ?soKyNang)
+  (COUNT(DISTINCT ?test) as ?soBaiKiemTra)
+  (COUNT(DISTINCT ?result) as ?soKetQua)
+WHERE {
+  { ?student a edu:Student }
+  UNION { ?teacher a edu:Teacher }
+  UNION { ?class a edu:Class }
+  UNION { ?lesson a edu:Lesson }
+  UNION { ?question a edu:Question }
+  UNION { ?skill a edu:Skill }
+  UNION { ?test a edu:Test }
+  UNION { ?result a edu:TestResult }
+}
+
+================================================================================
+HƯỚNG DẪN:
+1. Mở GraphDB Desktop
+2. Chọn repository: tinhocthcs
+3. Vào tab "SPARQL"
+4. Copy query vào editor
+5. Nhấn "Run" hoặc Ctrl + Enter
+================================================================================
+

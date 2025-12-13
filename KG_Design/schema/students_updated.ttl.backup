@@ -1,0 +1,106 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix data: <http://education.vn/data/> .
+
+data:student/2324_0001 a edu:Student ;
+    edu:studentId "2324_0001" ;
+    edu:fullName "Bùi Đoàn Khánh An" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0002 a edu:Student ;
+    edu:studentId "2324_0002" ;
+    edu:fullName "Nguyễn Khánh An" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0003 a edu:Student ;
+    edu:studentId "2324_0003" ;
+    edu:fullName "Nguyễn Lam Anh" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0004 a edu:Student ;
+    edu:studentId "2324_0004" ;
+    edu:fullName "Nguyễn Ngọc Bảo Anh" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0005 a edu:Student ;
+    edu:studentId "2324_0005" ;
+    edu:fullName "Trần Quỳnh Anh" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0006 a edu:Student ;
+    edu:studentId "2324_0006" ;
+    edu:fullName "Nguyễn Trần Thiên Ân" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0007 a edu:Student ;
+    edu:studentId "2324_0007" ;
+    edu:fullName "Nguyễn Tuấn Quốc Bảo" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0008 a edu:Student ;
+    edu:studentId "2324_0008" ;
+    edu:fullName "Trần Hải Băng" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0009 a edu:Student ;
+    edu:studentId "2324_0009" ;
+    edu:fullName "Nguyễn Thanh Bình" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0010 a edu:Student ;
+    edu:studentId "2324_0010" ;
+    edu:fullName "Lê Trịnh Bảo Châu" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0011 a edu:Student ;
+    edu:studentId "2324_0011" ;
+    edu:fullName "Đinh Anh Dũng" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0012 a edu:Student ;
+    edu:studentId "2324_0012" ;
+    edu:fullName "Thạch Khánh Duy" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0013 a edu:Student ;
+    edu:studentId "2324_0013" ;
+    edu:fullName "Hoàng Đặng Linh Đan" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0014 a edu:Student ;
+    edu:studentId "2324_0014" ;
+    edu:fullName "Vũ Hoàng Khánh Giang" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0015 a edu:Student ;
+    edu:studentId "2324_0015" ;
+    edu:fullName "Trần Nhật Hải" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0016 a edu:Student ;
+    edu:studentId "2324_0016" ;
+    edu:fullName "Huỳnh Ngọc Hân" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0017 a edu:Student ;
+    edu:studentId "2324_0017" ;
+    edu:fullName "Đinh Quốc Hùng" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0018 a edu:Student ;
+    edu:studentId "2324_0018" ;
+    edu:fullName "Lê Quang Huy" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0019 a edu:Student ;
+    edu:studentId "2324_0019" ;
+    edu:fullName "Huỳnh Bảo Khang" ;
+    edu:belongsToClass data:class/6_1 .
+
+data:student/2324_0020 a edu:Student ;
+    edu:studentId "2324_0020" ;
+    edu:fullName "Nguyễn Nhật Khôi" ;
+    edu:belongsToClass data:class/6_1 .
+

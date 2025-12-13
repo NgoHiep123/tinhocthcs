@@ -1,0 +1,358 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix edu: <http://education.vn/ontology#> .
+
+# ============================================
+# KNOWLEDGE GRAPH SCHEMA CHUẨN - TIN HỌC THCS
+# Dựa trên đề cương Đề án 2
+# ============================================
+
+# ---------- ENTITIES (Thực thể) ----------
+
+# Học sinh
+edu:Student a rdfs:Class ;
+    rdfs:label "Học sinh"@vi ;
+    rdfs:comment "Thực thể đại diện cho học sinh THCS" .
+
+# Giáo viên
+edu:Teacher a rdfs:Class ;
+    rdfs:label "Giáo viên"@vi ;
+    rdfs:comment "Thực thể đại diện cho giáo viên dạy Tin học" .
+
+# Lớp học
+edu:Class a rdfs:Class ;
+    rdfs:label "Lớp học"@vi ;
+    rdfs:comment "Lớp học THCS (6/14, 7/19, ...)" .
+
+# Khối lớp
+edu:Grade a rdfs:Class ;
+    rdfs:label "Khối"@vi ;
+    rdfs:comment "Khối lớp 6, 7, 8, 9" .
+
+# Chủ đề
+edu:Topic a rdfs:Class ;
+    rdfs:label "Chủ đề"@vi ;
+    rdfs:comment "Chủ đề học tập (A, B, C, D, E, F)" .
+
+# Bài học
+edu:Lesson a rdfs:Class ;
+    rdfs:label "Bài học"@vi ;
+    rdfs:comment "Bài học cụ thể (A1, A2, A4, A5, ...)" .
+
+# Câu hỏi
+edu:Question a rdfs:Class ;
+    rdfs:label "Câu hỏi"@vi ;
+    rdfs:comment "Câu hỏi trắc nghiệm" .
+
+# Kỹ năng
+edu:Skill a rdfs:Class ;
+    rdfs:label "Kỹ năng"@vi ;
+    rdfs:comment "Kỹ năng: nhận biết, thông hiểu, vận dụng" .
+
+# Tài nguyên học tập
+edu:Resource a rdfs:Class ;
+    rdfs:label "Tài nguyên học tập"@vi ;
+    rdfs:comment "Tài nguyên học tập: HTML, video, PDF, bài tập" .
+
+# Bài kiểm tra
+edu:Test a rdfs:Class ;
+    rdfs:label "Bài kiểm tra"@vi ;
+    rdfs:comment "Bài kiểm tra trắc nghiệm" .
+
+# Kết quả làm bài
+edu:TestResult a rdfs:Class ;
+    rdfs:label "Kết quả làm bài"@vi ;
+    rdfs:comment "Kết quả làm bài của học sinh" .
+
+# Mức độ thành thạo
+edu:Mastery a rdfs:Class ;
+    rdfs:label "Mức độ thành thạo"@vi ;
+    rdfs:comment "Mức độ thành thạo của học sinh đối với kỹ năng" .
+
+# ---------- RELATIONSHIPS (Quan hệ) ----------
+
+# Học sinh thuộc lớp
+edu:belongsToClass a rdf:Property ;
+    rdfs:label "thuộc lớp"@vi ;
+    rdfs:domain edu:Student ;
+    rdfs:range edu:Class .
+
+# Lớp thuộc khối
+edu:belongsToGrade a rdf:Property ;
+    rdfs:label "thuộc khối"@vi ;
+    rdfs:domain edu:Class ;
+    rdfs:range edu:Grade .
+
+# Giáo viên dạy lớp
+edu:teaches a rdf:Property ;
+    rdfs:label "giảng dạy"@vi ;
+    rdfs:domain edu:Teacher ;
+    rdfs:range edu:Class .
+
+# Bài học thuộc chủ đề
+edu:belongsToTopic a rdf:Property ;
+    rdfs:label "thuộc chủ đề"@vi ;
+    rdfs:domain edu:Lesson ;
+    rdfs:range edu:Topic .
+
+# Chủ đề thuộc khối
+edu:forGrade a rdf:Property ;
+    rdfs:label "dành cho khối"@vi ;
+    rdfs:domain edu:Topic ;
+    rdfs:range edu:Grade .
+
+# Câu hỏi thuộc bài học
+edu:belongsToLesson a rdf:Property ;
+    rdfs:label "thuộc bài học"@vi ;
+    rdfs:domain edu:Question ;
+    rdfs:range edu:Lesson .
+
+# Câu hỏi yêu cầu kỹ năng
+edu:requiresSkill a rdf:Property ;
+    rdfs:label "yêu cầu kỹ năng"@vi ;
+    rdfs:domain edu:Question ;
+    rdfs:range edu:Skill .
+
+# Tài nguyên phủ sóng kỹ năng
+edu:coversSkill a rdf:Property ;
+    rdfs:label "phủ sóng kỹ năng"@vi ;
+    rdfs:comment "Tài nguyên học tập phủ sóng kỹ năng với mức độ coverage"@vi ;
+    rdfs:domain edu:Resource ;
+    rdfs:range edu:Skill .
+
+# Kỹ năng tiên quyết
+edu:prerequisiteOf a rdf:Property ;
+    rdfs:label "tiên quyết của"@vi ;
+    rdfs:comment "Kỹ năng này là tiên quyết của kỹ năng kia"@vi ;
+    rdfs:domain edu:Skill ;
+    rdfs:range edu:Skill .
+
+# Học sinh làm bài kiểm tra
+edu:takeTest a rdf:Property ;
+    rdfs:label "làm bài kiểm tra"@vi ;
+    rdfs:domain edu:Student ;
+    rdfs:range edu:Test .
+
+# Bài kiểm tra có câu hỏi
+edu:hasQuestion a rdf:Property ;
+    rdfs:label "có câu hỏi"@vi ;
+    rdfs:domain edu:Test ;
+    rdfs:range edu:Question .
+
+# Kết quả của học sinh
+edu:hasResult a rdf:Property ;
+    rdfs:label "có kết quả"@vi ;
+    rdfs:domain edu:Student ;
+    rdfs:range edu:TestResult .
+
+# Kết quả thuộc bài kiểm tra
+edu:forTest a rdf:Property ;
+    rdfs:label "của bài kiểm tra"@vi ;
+    rdfs:domain edu:TestResult ;
+    rdfs:range edu:Test .
+
+# Học sinh có mức độ thành thạo
+edu:hasMastery a rdf:Property ;
+    rdfs:label "có mức độ thành thạo"@vi ;
+    rdfs:domain edu:Student ;
+    rdfs:range edu:Mastery .
+
+# Mức độ thành thạo đối với kỹ năng
+edu:forSkill a rdf:Property ;
+    rdfs:label "đối với kỹ năng"@vi ;
+    rdfs:domain edu:Mastery ;
+    rdfs:range edu:Skill .
+
+# Học sinh yếu về chủ đề (KNN)
+edu:weakInTopic a rdf:Property ;
+    rdfs:label "yếu ở chủ đề"@vi ;
+    rdfs:comment "Được xác định bởi k-Nearest Neighbors (KNN)"@vi ;
+    rdfs:domain edu:Student ;
+    rdfs:range edu:Topic .
+
+# Bài học được gợi ý cho học sinh (PPR)
+edu:recommendedFor a rdf:Property ;
+    rdfs:label "được gợi ý cho"@vi ;
+    rdfs:comment "Được xác định bởi Personalized PageRank (PPR)"@vi ;
+    rdfs:domain edu:Lesson ;
+    rdfs:range edu:Student .
+
+# Tài nguyên được gợi ý cho học sinh (PPR)
+edu:recommendedResourceFor a rdf:Property ;
+    rdfs:label "tài nguyên được gợi ý cho"@vi ;
+    rdfs:comment "Tài nguyên học tập được gợi ý cho học sinh (PPR)"@vi ;
+    rdfs:domain edu:Resource ;
+    rdfs:range edu:Student .
+
+# ---------- PROPERTIES (Thuộc tính) ----------
+
+# Điểm số
+edu:score a rdf:Property ;
+    rdfs:label "điểm số"@vi ;
+    rdfs:domain edu:TestResult , edu:Mastery ;
+    rdfs:range xsd:decimal .
+
+# Độ khó
+edu:difficulty a rdf:Property ;
+    rdfs:label "độ khó"@vi ;
+    rdfs:domain edu:Question , edu:Resource ;
+    rdfs:range xsd:string .
+
+# Thời gian làm bài
+edu:duration a rdf:Property ;
+    rdfs:label "thời gian"@vi ;
+    rdfs:domain edu:TestResult , edu:Resource ;
+    rdfs:range xsd:integer .
+
+# Ngày làm bài
+edu:testDate a rdf:Property ;
+    rdfs:label "ngày làm bài"@vi ;
+    rdfs:domain edu:TestResult ;
+    rdfs:range xsd:dateTime .
+
+# Ngày cập nhật
+edu:lastUpdated a rdf:Property ;
+    rdfs:label "ngày cập nhật"@vi ;
+    rdfs:domain edu:Mastery ;
+    rdfs:range xsd:date .
+
+# Mức độ phủ sóng
+edu:coverage a rdf:Property ;
+    rdfs:label "mức độ phủ sóng"@vi ;
+    rdfs:comment "Mức độ phủ sóng của tài nguyên đối với kỹ năng (0.0-1.0)"@vi ;
+    rdfs:range xsd:decimal .
+
+# Họ tên
+edu:fullName a rdf:Property ;
+    rdfs:label "họ tên"@vi ;
+    rdfs:domain edu:Student , edu:Teacher ;
+    rdfs:range xsd:string .
+
+# Mã học sinh
+edu:studentId a rdf:Property ;
+    rdfs:label "mã học sinh"@vi ;
+    rdfs:domain edu:Student ;
+    rdfs:range xsd:string .
+
+# Tên lớp
+edu:className a rdf:Property ;
+    rdfs:label "tên lớp"@vi ;
+    rdfs:domain edu:Class ;
+    rdfs:range xsd:string .
+
+# Mã giáo viên
+edu:teacherId a rdf:Property ;
+    rdfs:label "mã giáo viên"@vi ;
+    rdfs:domain edu:Teacher ;
+    rdfs:range xsd:string .
+
+# Chuyên môn
+edu:expertise a rdf:Property ;
+    rdfs:label "chuyên môn"@vi ;
+    rdfs:domain edu:Teacher ;
+    rdfs:range xsd:string .
+
+# Mã khối
+edu:grade a rdf:Property ;
+    rdfs:label "khối"@vi ;
+    rdfs:domain edu:Grade , edu:Skill , edu:Resource , edu:Topic ;
+    rdfs:range xsd:integer .
+
+# Mã chủ đề
+edu:topicId a rdf:Property ;
+    rdfs:label "mã chủ đề"@vi ;
+    rdfs:domain edu:Topic ;
+    rdfs:range xsd:string .
+
+# Nhãn
+edu:label a rdf:Property ;
+    rdfs:label "nhãn"@vi ;
+    rdfs:domain edu:Topic , edu:Lesson ;
+    rdfs:range xsd:string .
+
+# Mã bài học
+edu:lessonId a rdf:Property ;
+    rdfs:label "mã bài học"@vi ;
+    rdfs:domain edu:Lesson ;
+    rdfs:range xsd:string .
+
+# Mã câu hỏi
+edu:q_id a rdf:Property ;
+    rdfs:label "mã câu hỏi"@vi ;
+    rdfs:domain edu:Question ;
+    rdfs:range xsd:string .
+
+# Nội dung câu hỏi
+edu:questionText a rdf:Property ;
+    rdfs:label "nội dung câu hỏi"@vi ;
+    rdfs:domain edu:Question ;
+    rdfs:range xsd:string .
+
+# Đáp án đúng
+edu:correctOption a rdf:Property ;
+    rdfs:label "đáp án đúng"@vi ;
+    rdfs:domain edu:Question ;
+    rdfs:range xsd:string .
+
+# Mã kỹ năng
+edu:skillId a rdf:Property ;
+    rdfs:label "mã kỹ năng"@vi ;
+    rdfs:domain edu:Skill ;
+    rdfs:range xsd:string .
+
+# Tên kỹ năng
+edu:name a rdf:Property ;
+    rdfs:label "tên"@vi ;
+    rdfs:domain edu:Skill ;
+    rdfs:range xsd:string .
+
+# Mức độ Bloom
+edu:bloomLevel a rdf:Property ;
+    rdfs:label "mức độ Bloom"@vi ;
+    rdfs:domain edu:Skill ;
+    rdfs:range xsd:string .
+
+# Lĩnh vực
+edu:domain a rdf:Property ;
+    rdfs:label "lĩnh vực"@vi ;
+    rdfs:domain edu:Skill ;
+    rdfs:range xsd:string .
+
+# Mã tài nguyên
+edu:resId a rdf:Property ;
+    rdfs:label "mã tài nguyên"@vi ;
+    rdfs:domain edu:Resource ;
+    rdfs:range xsd:string .
+
+# Tiêu đề
+edu:title a rdf:Property ;
+    rdfs:label "tiêu đề"@vi ;
+    rdfs:domain edu:Resource ;
+    rdfs:range xsd:string .
+
+# Loại media
+edu:mediaType a rdf:Property ;
+    rdfs:label "loại media"@vi ;
+    rdfs:domain edu:Resource ;
+    rdfs:range xsd:string .
+
+# URL
+edu:url a rdf:Property ;
+    rdfs:label "URL"@vi ;
+    rdfs:domain edu:Resource ;
+    rdfs:range xsd:string .
+
+# Mã bài kiểm tra
+edu:testId a rdf:Property ;
+    rdfs:label "mã bài kiểm tra"@vi ;
+    rdfs:domain edu:Test ;
+    rdfs:range xsd:string .
+
+# Tên bài kiểm tra
+edu:testName a rdf:Property ;
+    rdfs:label "tên bài kiểm tra"@vi ;
+    rdfs:domain edu:Test ;
+    rdfs:range xsd:string .
+

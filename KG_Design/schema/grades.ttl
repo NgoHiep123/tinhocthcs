@@ -1,0 +1,18 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix edu: <http://education.vn/ontology#> .
+@prefix data: <http://education.vn/data/> .
+
+data:grade_6 a edu:Grade ;
+    edu:grade "6"^^xsd:integer .
+
+data:grade_7 a edu:Grade ;
+    edu:grade "7"^^xsd:integer .
+
+data:grade_8 a edu:Grade ;
+    edu:grade "8"^^xsd:integer .
+
+data:grade_9 a edu:Grade ;
+    edu:grade "9"^^xsd:integer .
+

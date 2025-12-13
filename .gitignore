@@ -43,6 +43,8 @@ ENV/
 credentials.json
 *.key
 *.pem
+**/mysql_config.json
+backend_api/api/config.php
 
 # Logs
 *.log
